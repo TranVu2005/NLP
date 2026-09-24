@@ -1,0 +1,5 @@
+1. **Dự đoán nào sai?: Không có dự đoán nào sai
+2. **Kết quả đáng chú ý:**: Pipeline C có vocabulary nhỏ hơn nhiều: 18.615 từ, so với 473.388 ở A và 197.022 ở B. Trên 5 truy vấn có nhãn thủ công, cả ba pipeline đều có P@5 = 0,28 và Recall@5 = 1,0; MRR của C là 1,0, còn A và B là 0,90. Kết quả chỉ phản ánh tập đánh giá nhỏ này.
+3. **Bằng chứng rõ nhất:**: Cùng 5 truy vấn và cùng nhãn liên quan được dùng cho cả ba pipeline nên thứ hạng có thể đối chiếu trực tiếp. Tập nhỏ và gán nhãn thủ công nên đây mới là bằng chứng ban đầu, chưa phải benchmark rộng.
+4. **Failure case:**: Với truy vấn "transformer language model", Pipeline B xếp D27937 đầu tiên (similarity 0,5050), nhưng preview nói về transformer trong bo mạch điện. Từ "transformer" và "model" trùng nhau nhưng chủ đề không phải NLP. Với "natural language processing", kết quả đầu D08706 là văn bản quy định an toàn thực phẩm.
+5. **Nếu làm lại:**: Sẽ bổ sung truy vấn đánh giá, nhờ người khác gán nhãn độc lập và tách riêng các ablation để đo tác động của dấu câu và stopword.
