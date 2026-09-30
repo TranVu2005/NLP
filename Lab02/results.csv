@@ -1,0 +1,126 @@
+experiment,model,n,smoothing,split,metric,value,context,prediction,actual,rank,probability,raw_log_probability,average_log_probability,unseen_ngram_types,unseen_ngram_events,zero_probability_events
+corpus_statistics,All documents,,,All,number_of_documents,30000,,,,,,,,,,
+corpus_statistics,All documents,,,All,number_of_sentences,635207,,,,,,,,,,
+corpus_statistics,All documents,,,All,number_of_tokens,10970394,,,,,,,,,,
+corpus_statistics,All documents,,,All,vocabulary_size,206107,,,,,,,,,,
+corpus_statistics,All documents,,,All,unique_unigrams,206107,,,,,,,,,,
+corpus_statistics,All documents,,,All,unique_bigrams,2816642,,,,,,,,,,
+corpus_statistics,All documents,,,All,unique_trigrams,6492481,,,,,,,,,,
+corpus_statistics,All documents,,,All,unigram_types_once,102248,,,,,,,,,,
+corpus_statistics,All documents,,,All,bigram_types_once,2027065,,,,,,,,,,
+corpus_statistics,All documents,,,All,trigram_types_once,5618041,,,,,,,,,,
+unique_ngram_counts,Unigram,1,MLE,Train,unique_training_ngrams,180196,,,,,,,,,,
+unique_ngram_counts,Bigram,2,MLE,Train,unique_training_ngrams,2388078,,,,,,,,,,
+unique_ngram_counts,Trigram,3,MLE,Train,unique_training_ngrams,5360512,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Train,perplexity,192.2154460405289,,,,,,,,0,0,0
+mle_vs_laplace,Bigram MLE,2,MLE,Train,unseen_ngram_types,0,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Train,unseen_ngram_events,0,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Train,zero_probability_events,0,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Validation,perplexity,inf,,,,,,,,196437,246446,248700
+mle_vs_laplace,Bigram MLE,2,MLE,Validation,unseen_ngram_types,196437,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Validation,unseen_ngram_events,246446,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Validation,zero_probability_events,248700,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Test,perplexity,inf,,,,,,,,196621,246990,249501
+mle_vs_laplace,Bigram MLE,2,MLE,Test,unseen_ngram_types,196621,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Test,unseen_ngram_events,246990,,,,,,,,,,
+mle_vs_laplace,Bigram MLE,2,MLE,Test,zero_probability_events,249501,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Train,perplexity,6505.709546372425,,,,,,,,0,0,0
+mle_vs_laplace,Bigram Laplace,2,Laplace,Train,unseen_ngram_types,0,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Train,unseen_ngram_events,0,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Train,zero_probability_events,0,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Validation,perplexity,8567.008155126536,,,,,,,,196437,246446,0
+mle_vs_laplace,Bigram Laplace,2,Laplace,Validation,unseen_ngram_types,196437,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Validation,unseen_ngram_events,246446,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Validation,zero_probability_events,0,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Test,perplexity,8578.536675833555,,,,,,,,196621,246990,0
+mle_vs_laplace,Bigram Laplace,2,Laplace,Test,unseen_ngram_types,196621,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Test,unseen_ngram_events,246990,,,,,,,,,,
+mle_vs_laplace,Bigram Laplace,2,Laplace,Test,zero_probability_events,0,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Train,perplexity,16.45539107008535,,,,,,,,0,0,0
+mle_vs_laplace,Trigram MLE,3,MLE,Train,unseen_ngram_types,0,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Train,unseen_ngram_events,0,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Train,zero_probability_events,0,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Validation,perplexity,inf,,,,,,,,562440,604191,620616
+mle_vs_laplace,Trigram MLE,3,MLE,Validation,unseen_ngram_types,562440,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Validation,unseen_ngram_events,604191,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Validation,zero_probability_events,620616,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Test,perplexity,inf,,,,,,,,560193,600977,617974
+mle_vs_laplace,Trigram MLE,3,MLE,Test,unseen_ngram_types,560193,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Test,unseen_ngram_events,600977,,,,,,,,,,
+mle_vs_laplace,Trigram MLE,3,MLE,Test,zero_probability_events,617974,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Train,perplexity,32469.955602055074,,,,,,,,0,0,0
+mle_vs_laplace,Trigram Laplace,3,Laplace,Train,unseen_ngram_types,0,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Train,unseen_ngram_events,0,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Train,zero_probability_events,0,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Validation,perplexity,53900.835588048685,,,,,,,,562440,604191,0
+mle_vs_laplace,Trigram Laplace,3,Laplace,Validation,unseen_ngram_types,562440,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Validation,unseen_ngram_events,604191,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Validation,zero_probability_events,0,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Test,perplexity,54064.12687498708,,,,,,,,560193,600977,0
+mle_vs_laplace,Trigram Laplace,3,Laplace,Test,unseen_ngram_types,560193,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Test,unseen_ngram_events,600977,,,,,,,,,,
+mle_vs_laplace,Trigram Laplace,3,Laplace,Test,zero_probability_events,0,,,,,,,,,,
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Train,perplexity,2154.8835131422875,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Train,unseen_ngram_types,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Train,unseen_ngram_events,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Train,zero_probability_events,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Validation,perplexity,inf,,,,,,,,1,21212,21212
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Validation,unseen_ngram_types,1,,,,,,,,1,21212,21212
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Validation,unseen_ngram_events,21212,,,,,,,,1,21212,21212
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Validation,zero_probability_events,21212,,,,,,,,1,21212,21212
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Test,perplexity,inf,,,,,,,,1,21972,21972
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Test,unseen_ngram_types,1,,,,,,,,1,21972,21972
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Test,unseen_ngram_events,21972,,,,,,,,1,21972,21972
+unigram_vs_bigram_vs_trigram,Unigram,1,MLE,Test,zero_probability_events,21972,,,,,,,,1,21972,21972
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Train,perplexity,192.2154460405289,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Train,unseen_ngram_types,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Train,unseen_ngram_events,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Train,zero_probability_events,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Validation,perplexity,inf,,,,,,,,196437,246446,248700
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Validation,unseen_ngram_types,196437,,,,,,,,196437,246446,248700
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Validation,unseen_ngram_events,246446,,,,,,,,196437,246446,248700
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Validation,zero_probability_events,248700,,,,,,,,196437,246446,248700
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Test,perplexity,inf,,,,,,,,196621,246990,249501
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Test,unseen_ngram_types,196621,,,,,,,,196621,246990,249501
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Test,unseen_ngram_events,246990,,,,,,,,196621,246990,249501
+unigram_vs_bigram_vs_trigram,Bigram,2,MLE,Test,zero_probability_events,249501,,,,,,,,196621,246990,249501
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Train,perplexity,16.45539107008535,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Train,unseen_ngram_types,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Train,unseen_ngram_events,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Train,zero_probability_events,0,,,,,,,,0,0,0
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Validation,perplexity,inf,,,,,,,,562440,604191,620616
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Validation,unseen_ngram_types,562440,,,,,,,,562440,604191,620616
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Validation,unseen_ngram_events,604191,,,,,,,,562440,604191,620616
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Validation,zero_probability_events,620616,,,,,,,,562440,604191,620616
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Test,perplexity,inf,,,,,,,,560193,600977,617974
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Test,unseen_ngram_types,560193,,,,,,,,560193,600977,617974
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Test,unseen_ngram_events,600977,,,,,,,,560193,600977,617974
+unigram_vs_bigram_vs_trigram,Trigram,3,MLE,Test,zero_probability_events,617974,,,,,,,,560193,600977,617974
+next_word_prediction,Trigram Laplace,3,Laplace,,,,the cat,box,family,1,2.773663510237592e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,the cat,and,family,2,2.2189308081900737e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,the cat,can,family,3,2.2189308081900737e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,the cat,in,family,4,2.2189308081900737e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,the cat,is,family,5,2.2189308081900737e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,natural language,processing,analysis,1,3.3294674516811034e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,natural language,laboratory,analysis,2,2.2196449677874024e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,natural language,1980,analysis,3,1.1098224838937012e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,natural language,apps,analysis,4,1.1098224838937012e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,natural language,speech,analysis,5,1.1098224838937012e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,machine learning,and,portfolio,1,6.101890476613118e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,machine learning,algorithms,portfolio,2,3.328303896334428e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,machine learning,based,portfolio,3,3.328303896334428e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,machine learning,models,portfolio,4,3.328303896334428e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,machine learning,to,portfolio,5,3.328303896334428e-05,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,of the,most,valentino,1,0.004221870157906649,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,of the,best,valentino,2,0.0024025487908912063,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,of the,year,valentino,3,0.002036943540103414,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,of the,world,valentino,4,0.0017322724977802538,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,of the,new,valentino,5,0.001310085481989589,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,in the,world,neighbourhood,1,0.003575109507858799,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,in the,past,neighbourhood,2,0.002374203997496963,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,in the,first,neighbourhood,3,0.002314388780505761,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,in the,same,neighbourhood,4,0.0019002834321051275,,,,,
+next_word_prediction,Trigram Laplace,3,Laplace,,,,in the,future,neighbourhood,5,0.0018266647035005705,,,,,
+sentence_ranking,Trigram Laplace,3,Laplace,,,,machine learning,is useful for NLP,,1,,-45.464149824471654,-11.366037456117914,,,
+sentence_ranking,Trigram Laplace,3,Laplace,,,,machine learning,banana computer quickly,,2,,-36.30583405210213,-12.101944684034043,,,
+sentence_ranking,Trigram Laplace,3,Laplace,,,,machine learning,studies language models,,3,,-36.305839601568685,-12.101946533856228,,,
