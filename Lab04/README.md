@@ -1,65 +1,61 @@
-# LAB 04 - Phân loại văn bản
+# LAB 04 — Phân loại văn bản
 
-Đã chạy đủ cả 4 cấu hình bằng kernel Jupyter mới. 9/9 unit tests đạt; không có thí nghiệm bị bỏ qua. Markdown và các tệp chi tiết được tổng hợp từ output thật.
+## Hồ sơ theo W4 trang 13
 
-Corpus: 50,000 review IMDb từ imdb.zip có sẵn trong workspace; CSV không chứa official split. Archive không ghi upstream hoặc release. SHA-256: `73a235bc5fc4df57bb5d517afa480fe6bfd4e2afc25dc5e5867fc87f2d25614d`.
+9 file bắt buộc: `README.md`, `calculations.md`, `prediction.md`, `classification.ipynb`, `preprocessing.py`, `results.csv`, `confusion_matrix.png`, `error_analysis.md`, `reflection.md`.
 
-Seed=42; nhãn negative=0, positive=1; binary metrics dùng positive. Chia theo nhóm văn bản trùng bằng StratifiedGroupKFold 14/3/3 của 20 fold: `{'train': {'samples': 35000, 'class_counts': {'positive': 17500, 'negative': 17500}}, 'validation': {'samples': 7500, 'class_counts': {'positive': 3750, 'negative': 3750}}, 'test': {'samples': 7500, 'class_counts': {'negative': 3750, 'positive': 3750}}}`. Trùng chéo: `{'train_validation': 0, 'train_test': 0, 'validation_test': 0}`. Không downsample.
+File hỗ trợ giữ lại: `imdb.zip` (dữ liệu), `requirements.txt` (dependencies), `test_lab04.py` (tests được notebook gọi), `run_notebook.py` (Restart & Run All bằng kernel mới), `W4.pdf` và `23001958_Tran_Xuan_Vu_Lab04.pdf` (đề và bài viết tay nguồn).
 
-## Kết quả test
+Các bảng so sánh, demo phủ định, top features, hình phân bố lớp và văn bản ví dụ đã nằm trong notebook; không cần báo cáo/JSON trùng lặp riêng.
 
-| Mô hình | Accuracy | Precision | Recall | F1 | Vocabulary | Thời gian (s) |
-|---|---:|---:|---:|---:|---:|---:|
+## Dữ liệu và split
+
+50,000 review IMDb; negative/positive đều 25.000 (50%); 418 dòng trùng ngoài lần đầu; missing text/label=0. Archive không ghi upstream/release hoặc official split. SHA-256: `73a235bc5fc4df57bb5d517afa480fe6bfd4e2afc25dc5e5867fc87f2d25614d`.
+
+Seed=42; split theo nhóm review trùng: train=35.000, validation=7.500, test=7.500; overlap giữa các split bằng 0. TF-IDF/Word2Vec chỉ fit trên train. Label mapping negative=0, positive=1; binary metrics dùng positive. Model chọn theo validation F1: `tfidf_logistic_unigram_bigram`.
+
+## Kết quả test đã chạy
+
+| Model | Accuracy | Precision | Recall | F1 | Vocabulary | Fit time (s) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | tfidf_logistic_unigram | 0.896400000 | 0.885803270 | 0.910133333 | 0.897803499 | 50000 | 12.515986 |
 | average_word2vec_logistic | 0.867733333 | 0.864814815 | 0.871733333 | 0.868260292 | 58892 | 611.255613 |
 | tfidf_linear_svm_unigram | 0.896000000 | 0.889355008 | 0.904533333 | 0.896879958 | 50000 | 13.328219 |
 | tfidf_logistic_unigram_bigram | 0.907066667 | 0.898044329 | 0.918400000 | 0.908108108 | 100000 | 40.423605 |
 
-Cấu hình chọn theo validation F1: `tfidf_logistic_unigram_bigram`. Test chỉ đánh giá những cấu hình đã xác định trước; không chỉnh model theo test.
-
-Confusion matrix baseline test: `[[3310, 440], [337, 3413]]`; hàng thực tế/cột dự đoán theo negative, positive. FP=440, FN=337.
-
-## Cấu hình và giới hạn
-
-TF-IDF dùng min_df=2; unigram có max_features=50.000, unigram+bigram=100.000. So sánh dùng cùng split và Logistic Regression, nhưng khác cap vocabulary nên không quy toàn bộ chênh lệch cho n-gram. Word2Vec Skip-gram: vector_size=100, window=5, min_count=2, epochs=10, workers=1, seed=42; PYTHONHASHSEED=42. Chỉ học từ train; document không có từ đã biết nhận vector 0. Thời gian Word2Vec gồm train embedding, tạo vector và fit LR. Hai câu demo không thay thế đánh giá định lượng trên test.
-
-## Tệp
-
-- classification.ipynb: các phần thí nghiệm, 17 code cells, output và Markdown tiếng Việt.
-- preprocessing.py và test_lab04.py: helper và 9 numerical/preprocessing tests.
-- results.csv: metrics validation/test, confusion matrices, demo và dataset facts; input_text xác định câu demo.
-- class_distribution.png và confusion_matrix.png: biểu đồ thực tế, ảnh trạng thái cũ đã được thay.
-- run_summary.json: đầy đủ kết quả, split, phiên bản, matrix, report từng lớp và model selection theo validation.
-- word_order_demo.json: TF-IDF, hai vector Word2Vec 100 chiều, OOV và xác suất.
-- error_examples.json: 3 đúng/3 sai, full text, nhãn, xác suất và feature hỗ trợ.
-- notebook_answers.json: câu trả lời tham khảo do AI hỗ trợ, gắn với SHA-256 của kết quả thực nghiệm để tránh dùng câu trả lời cũ khi kết quả đổi.
-- model_weights.json: top-20 hệ số dương/âm, ánh xạ nhãn và term/bigram thật.
-- requirements.txt: phiên bản thư viện đã chạy.
-- run_notebook.py và annotate_results.py: chạy kernel mới và cập nhật Markdown theo output.
+Baseline confusion matrix: `[[3310,440],[337,3413]]`; hàng true/cột predicted theo negative, positive; FP=440, FN=337. Word2Vec time gồm train embeddings, tạo vector và fit LR. Unigram/bigram khác cả n-gram và vocabulary cap, nên không quy toàn bộ chênh lệch cho bigram.
 
 ## Chạy lại
 
-Trong môi trường Python phù hợp tại Lab04:
+Tại thư mục Lab04:
 
 ```powershell
 python -m pip install -r requirements.txt
 python run_notebook.py
 ```
 
-Trên workspace hiện tại, dùng Python đóng gói tại `C:\Users\Admin\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; runner tự nạp thư viện trong `.lab01-deps` dùng chung. Notebook báo lỗi nếu thiếu thư viện bắt buộc và assert đủ 4 model trước khi export.
+Hoặc mở `classification.ipynb`, chọn Restart Kernel & Run All. Runner tạo kernel mới, chỉ lưu notebook chính khi toàn bộ cell thành công. Output thực nghiệm đã có đủ 4 model; 17 code cells đã chạy và 9 tests đạt. Lần tinh gọn này giữ nguyên code/output của notebook, không huấn luyện lại.
 
-## AI hỗ trợ và kiểm chứng
+Các JSON và hình phụ có thể được tạo lại khi chạy notebook, nhưng không phải deliverables và được `.gitignore` bỏ qua. Markdown số liệu hiện có gắn với output hiện tại; nếu chạy lại, tự đối chiếu và cập nhật thời gian/metric, không giữ Markdown cũ nếu kết quả đổi.
 
-Tool: OpenAI Codex. Mục đích: code/debug/thực nghiệm/đồ thị và tổng hợp Markdown từ output. Đã xác minh: 9/9 tests, kernel mới chạy toàn bộ notebook, 4 model, CSV và dữ liệu chi tiết. Không viết thay reflection hoặc nguyên nhân lỗi cá nhân. Phiên bản: `{'numpy': '2.5.4', 'pandas': '3.0.6', 'matplotlib': '3.11.2', 'scikit-learn': '1.9.1', 'gensim': '4.4.0', 'nbclient': '0.11.0', 'ipykernel': '7.4.0'}`.
+## Phần cá nhân còn thiếu
 
-## Hồ sơ theo W4
+Calculation/prediction được chép từ PDF viết tay; confidence và thời điểm trước experiment chưa xác minh. `error_analysis.md` chứa bằng chứng 3 đúng/3 sai nhưng còn phần nguyên nhân sinh viên tự viết. `reflection.md` còn là khung. W4 trang 12–13 yêu cầu sinh viên tự hoàn thiện reflection, diễn giải và individual learning check; câu trả lời tham khảo AI trong notebook không thay thế các phần này.
 
-- calculations.md và prediction.md: chép từ PDF bài viết tay đã có; không tạo dự đoán mới sau khi biết kết quả. Confidence và thời điểm trước experiment chưa được xác minh.
-- experiment_report.md: báo cáo 5 experiments, metrics, chênh lệch và giới hạn từ output thật.
-- error_analysis.md: văn bản đầy đủ, nhãn, score và contribution cho 3 đúng/3 sai; sinh viên tự viết nguyên nhân trong phần riêng.
-- model_interpretability.md: top-20 hệ số dương/âm, label mapping và coefficient bigram.
-- reflection.md và learning_check.md: khung cho phần sinh viên tự hoàn thiện theo W4 trang 12–13.
-- AI_CONTRIBUTION.md và rubric_checklist.md: khai báo hỗ trợ AI và đối chiếu 100 điểm. Các câu trả lời tham khảo AI trong notebook không được coi là bài cá nhân.
-- prepare_submission.py và submission_manifest.json: kiểm tra JSON/CSV, xuất báo cáo và SHA-256; giữ nguyên notebook/code/output.
+## AI assistance statement
 
-Sau khi chạy notebook, chạy `python prepare_submission.py`. Runner cũng tự gọi script này khi có file. Các vùng AUTO được cập nhật; phần sinh viên viết bên ngoài vùng AUTO được giữ nguyên. Bài chưa hoàn chỉnh phần cá nhân khi còn dấu … trong error analysis/reflection/learning check.
+**Tool:** OpenAI Codex.
+
+**Purpose:** hỗ trợ code, debugging, preprocessing, visualization, môi trường thực thi và xuất hồ sơ bằng chứng bằng tiếng Việt.
+
+**Generated:** helpers/tests, runner, mã thí nghiệm và xuất dữ liệu; Markdown bằng chứng, bảng metrics, bảng coefficient; script tạo hồ sơ nộp. Các câu trả lời tham khảo trong notebook và các Markdown câu trả lời trong notebook cũng có AI hỗ trợ.
+
+**Modified:** pipeline chia dữ liệu theo nhóm review trùng; fit TF-IDF và Word2Vec trên train; thêm đủ 4 cấu hình, metrics, confusion matrix, demo/OOV, ví dụ đúng/sai và coefficient. Không điều chỉnh score thực nghiệm để cải thiện báo cáo.
+
+**Verified:** output notebook từ lần chạy kernel mới, 9 unit tests, 4 model không skip; đối chiếu JSON/CSV/confusion matrix và file chi tiết. Script hồ sơ kiểm tra code source, execution/output fingerprint và metric trước khi xuất báo cáo.
+
+## Nguồn nội dung cá nhân
+
+`calculations.md` và `prediction.md` được chép từ `23001958_Tran_Xuan_Vu_Lab04.pdf`, không phải đáp án cá nhân mới do AI tạo. Chưa xác minh thời điểm viết tay. Mức confidence chưa có được ghi là thiếu, không dựng lại dự đoán trước experiment.
+
+W4 trang 12 không cho dùng AI cho prediction trước experiment, calculation, interpretation metrics, chọn nguyên nhân error, reflection và individual learning check. Các câu trả lời AI trong notebook chỉ là tham khảo có khai báo. Sinh viên cần tự hoàn thiện các phần cá nhân và xác nhận hiểu code; báo cáo bằng chứng tự động không chứng minh đã thực hiện việc đó.

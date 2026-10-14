@@ -3,7 +3,6 @@ from pathlib import Path
 import json
 import os
 import sys
-import subprocess
 
 LAB = Path(__file__).resolve().parent
 WORKSPACE = LAB.parent
@@ -53,12 +52,6 @@ def main():
         raise
     nbformat.validate(notebook)
     nbformat.write(notebook, notebook_path)
-    annotator = LAB / "annotate_results.py"
-    if annotator.exists():
-        subprocess.run([sys.executable, str(annotator)], check=True)
-    submission = LAB / "prepare_submission.py"
-    if submission.exists():
-        subprocess.run([sys.executable, str(submission)], check=True)
     count = sum(cell.cell_type == "code" for cell in notebook.cells)
     print(f"Kernel mới: toàn bộ {count} code cell thành công; đã lưu output.", flush=True)
 

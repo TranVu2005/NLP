@@ -4,7 +4,7 @@ W4 trang 12 yêu cầu reflection do sinh viên thực hiện. PDF bài viết t
 
 ## 1. Dự đoán nào được kết quả hỗ trợ hoặc chưa thể kiểm chứng?
 
-Đối chiếu `prediction.md` với bảng validation/test trong `experiment_report.md`. Phân biệt kết quả đã đo với ablation vocabulary/stopword chưa chạy. Không sửa dự đoán gốc sau khi biết kết quả.
+Đối chiếu `prediction.md` với bảng validation/test trong `classification.ipynb`. Phân biệt kết quả đã đo với ablation vocabulary/stopword chưa chạy. Không sửa dự đoán gốc sau khi biết kết quả.
 
 **Câu trả lời của sinh viên:** …
 
@@ -28,6 +28,6 @@ Chọn một trong ba lỗi trong `error_analysis.md`; trích đoạn, true/pred
 
 ## 5. AI đã hỗ trợ những gì và bạn đã kiểm tra gì?
 
-Tham khảo `AI_CONTRIBUTION.md`. Tự ghi phần code đã hiểu/chỉnh và kết quả đã kiểm tra. Các câu trả lời tham khảo trong notebook do AI hỗ trợ, không được trình bày thành individual learning check hoặc reflection tự làm.
+Tham khảo mục khai báo AI trong `README.md`. Tự ghi phần code đã hiểu/chỉnh và kết quả đã kiểm tra. Các câu trả lời tham khảo trong notebook do AI hỗ trợ, không được trình bày thành individual learning check hoặc reflection tự làm.
 
 **Câu trả lời của sinh viên:** …

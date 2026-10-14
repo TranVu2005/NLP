@@ -1,3 +1,6 @@
 __pycache__/
 *.py[cod]
 .pdf_inspection/
+# Output phụ được tạo lại từ notebook, không nằm trong deliverables W4.
+*.json
+class_distribution.png

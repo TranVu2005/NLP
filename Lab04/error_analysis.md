@@ -13,7 +13,7 @@ W4 trang 12 yêu cầu sinh viên tự chọn nguyên nhân lỗi. Bảng tự �
 Các loại lỗi gợi ý trong W4: lexical ambiguity, negation, sarcasm, short text, rare word, domain term, data noise, class imbalance. Không gán loại lỗi nếu chưa có bằng chứng trong văn bản/model.
 
 <!-- AUTO:BEGIN -->
-Nguồn: `run_summary.json`; SHA-256 `4eb949321de177c8ad7040d22a2529c1e4bfe9ee98d37f7a4fc0e3a5b710f4e7`. Số liệu từ output đã chạy, không fit lại hoặc sửa score.
+Nguồn: output thực tế trong `classification.ipynb`, phần ví dụ phân loại đúng/sai. Số liệu không thay đổi.
 
 Model: TF-IDF unigram + Logistic Regression; test. Lấy 3 mẫu đúng và 3 mẫu sai đầu tiên theo thứ tự test, không đại diện toàn bộ loại lỗi.
 

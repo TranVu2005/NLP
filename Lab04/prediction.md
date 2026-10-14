@@ -44,4 +44,4 @@ Nguồn: `23001958_Tran_Xuan_Vu_Lab04.pdf`, trang 3. Giữ nội dung dự đoá
 
 ## Phạm vi kiểm chứng
 
-Đọc `experiment_report.md` và tự đối chiếu dự đoán với kết quả. Thí nghiệm unigram/bigram thay đổi đồng thời n-gram và cap vocabulary, nên không phải phép thử riêng ảnh hưởng vocabulary. Notebook chưa có ablation có/không stopword; không đánh dấu Prediction 4 đã được kiểm chứng trên IMDb. Dataset thật cân bằng, nên không dùng kết quả IMDb để thay ví dụ mất cân bằng của Bài 4.
+Đọc `classification.ipynb` và tự đối chiếu dự đoán với kết quả. Thí nghiệm unigram/bigram thay đổi đồng thời n-gram và cap vocabulary, nên không phải phép thử riêng ảnh hưởng vocabulary. Notebook chưa có ablation có/không stopword; không đánh dấu Prediction 4 đã được kiểm chứng trên IMDb. Dataset thật cân bằng, nên không dùng kết quả IMDb để thay ví dụ mất cân bằng của Bài 4.
