@@ -1,0 +1,80 @@
+experiment,model,representation,classifier,split,metric,value,vocabulary_size,training_time,status,input_text
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,validation,accuracy,0.8936,50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,validation,precision,0.883177570093458,50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,validation,recall,0.9072,50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,validation,f1,0.8950276243093923,50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,validation,confusion_matrix,"[[3300, 450], [348, 3402]]",50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,test,accuracy,0.8964,50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,test,precision,0.8858032701790812,50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,test,recall,0.9101333333333333,50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,test,f1,0.8978034986189662,50000,12.515985999954864,completed,
+tfidf_logistic_unigram,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,test,confusion_matrix,"[[3310, 440], [337, 3413]]",50000,12.515985999954864,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,validation,accuracy,0.8697333333333334,58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,validation,precision,0.8641975308641975,58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,validation,recall,0.8773333333333333,58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,validation,f1,0.8707158925499537,58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,validation,confusion_matrix,"[[3233, 517], [460, 3290]]",58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,test,accuracy,0.8677333333333334,58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,test,precision,0.8648148148148148,58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,test,recall,0.8717333333333334,58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,test,f1,0.8682602921646746,58892,611.2556131000165,completed,
+average_word2vec_logistic,average_word2vec_logistic,Average Word2Vec,LogisticRegression,test,confusion_matrix,"[[3239, 511], [481, 3269]]",58892,611.2556131000165,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,validation,accuracy,0.8984,50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,validation,precision,0.8923319327731093,50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,validation,recall,0.9061333333333333,50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,validation,f1,0.8991796771632707,50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,validation,confusion_matrix,"[[3340, 410], [352, 3398]]",50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,test,accuracy,0.896,50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,test,precision,0.8893550078657577,50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,test,recall,0.9045333333333333,50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,test,f1,0.8968799576943416,50000,13.328219400020316,completed,
+tfidf_linear_svm_unigram,tfidf_linear_svm_unigram,TF-IDF unigram,LinearSVC,test,confusion_matrix,"[[3328, 422], [358, 3392]]",50000,13.328219400020316,completed,
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,token_count,4,50000,,observed,this movie is good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,predicted_class,positive,50000,,observed,this movie is good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,predicted_probability_positive,0.8040121861210234,50000,,observed,this movie is good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:good,0.6736598134815897,50000,,observed,this movie is good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:is,0.37992479458383965,50000,,observed,this movie is good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:movie,0.511002065298024,50000,,observed,this movie is good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:this,0.37512197405848013,50000,,observed,this movie is good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,token_count,5,50000,,observed,this movie is not good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,predicted_class,positive,50000,,observed,this movie is not good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,predicted_probability_positive,0.5099735528297895,50000,,observed,this movie is not good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:good,0.5978680987144163,50000,,observed,this movie is not good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:is,0.33718044337301556,50000,,observed,this movie is not good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:movie,0.45351055103009924,50000,,observed,this movie is not good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:not,0.46082196855725377,50000,,observed,this movie is not good
+word_order_demo,tfidf_logistic_unigram,TF-IDF unigram,LogisticRegression,demo,tfidf_feature:this,0.33291797570239245,50000,,observed,this movie is not good
+word_order_demo,average_word2vec_logistic,Average Word2Vec,LogisticRegression,demo,cosine_similarity,0.9766854643821716,58892,,observed,this movie is good | this movie is not good
+word_order_demo,average_word2vec_logistic,Average Word2Vec,LogisticRegression,demo,predicted_probability_positive,0.7430846691131592,58892,,observed,this movie is good
+word_order_demo,average_word2vec_logistic,Average Word2Vec,LogisticRegression,demo,token_count:this movie is good,4,58892,,observed,this movie is good
+word_order_demo,average_word2vec_logistic,Average Word2Vec,LogisticRegression,demo,oov_count:this movie is good,0,58892,,observed,this movie is good
+word_order_demo,average_word2vec_logistic,Average Word2Vec,LogisticRegression,demo,predicted_probability_positive,0.24918363988399506,58892,,observed,this movie is not good
+word_order_demo,average_word2vec_logistic,Average Word2Vec,LogisticRegression,demo,token_count:this movie is not good,5,58892,,observed,this movie is not good
+word_order_demo,average_word2vec_logistic,Average Word2Vec,LogisticRegression,demo,oov_count:this movie is not good,0,58892,,observed,this movie is not good
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,validation,accuracy,0.9069333333333334,100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,validation,precision,0.8980177360459051,100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,validation,recall,0.9181333333333334,100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,validation,f1,0.9079641350210971,100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,validation,confusion_matrix,"[[3359, 391], [307, 3443]]",100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,test,accuracy,0.9070666666666667,100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,test,precision,0.8980443285528031,100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,test,recall,0.9184,100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,test,f1,0.9081081081081082,100000,40.423605200019665,completed,
+tfidf_logistic_unigram_bigram,tfidf_logistic_unigram_bigram,TF-IDF unigram+bigram,LogisticRegression,test,confusion_matrix,"[[3359, 391], [306, 3444]]",100000,40.423605200019665,completed,
+dataset_inspection,IMDb supplied archive,raw text,none,all,samples,50000,,,observed,
+dataset_inspection,IMDb supplied archive,raw text,none,all,missing_texts,0,,,observed,
+dataset_inspection,IMDb supplied archive,raw text,none,all,missing_labels,0,,,observed,
+dataset_inspection,IMDb supplied archive,raw text,none,all,duplicate_rows_beyond_first,418,,,observed,
+dataset_inspection,IMDb supplied archive,raw text,none,all,class_count:negative,25000,,,observed,
+dataset_inspection,IMDb supplied archive,raw text,none,all,class_percent:negative,50.0,,,observed,
+dataset_inspection,IMDb supplied archive,raw text,none,all,class_count:positive,25000,,,observed,
+dataset_inspection,IMDb supplied archive,raw text,none,all,class_percent:positive,50.0,,,observed,
+split,IMDb supplied archive,raw text,none,train,samples,35000,,,observed,
+split,IMDb supplied archive,raw text,none,train,class_count:positive,17500,,,observed,
+split,IMDb supplied archive,raw text,none,train,class_count:negative,17500,,,observed,
+split,IMDb supplied archive,raw text,none,validation,samples,7500,,,observed,
+split,IMDb supplied archive,raw text,none,validation,class_count:positive,3750,,,observed,
+split,IMDb supplied archive,raw text,none,validation,class_count:negative,3750,,,observed,
+split,IMDb supplied archive,raw text,none,test,samples,7500,,,observed,
+split,IMDb supplied archive,raw text,none,test,class_count:negative,3750,,,observed,
+split,IMDb supplied archive,raw text,none,test,class_count:positive,3750,,,observed,

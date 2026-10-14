@@ -1,0 +1,885 @@
+{
+  "dataset": "IMDb supplied local archive",
+  "archive_sha256": "73a235bc5fc4df57bb5d517afa480fe6bfd4e2afc25dc5e5867fc87f2d25614d",
+  "seed": 42,
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2",
+    "scikit-learn": "1.9.1",
+    "gensim": "4.4.0",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "samples": 50000,
+  "class_distribution": {
+    "negative": {
+      "count": 25000,
+      "percent": 50.0
+    },
+    "positive": {
+      "count": 25000,
+      "percent": 50.0
+    }
+  },
+  "length_statistics": {
+    "count": 50000,
+    "average": 231.15694,
+    "median": 173.0,
+    "min": 4,
+    "max": 2470
+  },
+  "missing_texts": 0,
+  "missing_labels": 0,
+  "duplicates": 418,
+  "split_summary": {
+    "train": {
+      "samples": 35000,
+      "class_counts": {
+        "positive": 17500,
+        "negative": 17500
+      }
+    },
+    "validation": {
+      "samples": 7500,
+      "class_counts": {
+        "positive": 3750,
+        "negative": 3750
+      }
+    },
+    "test": {
+      "samples": 7500,
+      "class_counts": {
+        "negative": 3750,
+        "positive": 3750
+      }
+    }
+  },
+  "duplicate_overlap": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "models": {
+    "tfidf_logistic_unigram": {
+      "representation": "TF-IDF unigram",
+      "classifier": "LogisticRegression",
+      "training_seconds": 12.515985999954864,
+      "vocabulary_size": 50000,
+      "validation": {
+        "accuracy": 0.8936,
+        "precision": 0.883177570093458,
+        "recall": 0.9072,
+        "f1": 0.8950276243093923
+      },
+      "test": {
+        "accuracy": 0.8964,
+        "precision": 0.8858032701790812,
+        "recall": 0.9101333333333333,
+        "f1": 0.8978034986189662
+      }
+    },
+    "average_word2vec_logistic": {
+      "representation": "Average Word2Vec",
+      "classifier": "LogisticRegression",
+      "training_seconds": 611.2556131000165,
+      "vocabulary_size": 58892,
+      "validation": {
+        "accuracy": 0.8697333333333334,
+        "precision": 0.8641975308641975,
+        "recall": 0.8773333333333333,
+        "f1": 0.8707158925499537
+      },
+      "test": {
+        "accuracy": 0.8677333333333334,
+        "precision": 0.8648148148148148,
+        "recall": 0.8717333333333334,
+        "f1": 0.8682602921646746
+      }
+    },
+    "tfidf_linear_svm_unigram": {
+      "representation": "TF-IDF unigram",
+      "classifier": "LinearSVC",
+      "training_seconds": 13.328219400020316,
+      "vocabulary_size": 50000,
+      "validation": {
+        "accuracy": 0.8984,
+        "precision": 0.8923319327731093,
+        "recall": 0.9061333333333333,
+        "f1": 0.8991796771632707
+      },
+      "test": {
+        "accuracy": 0.896,
+        "precision": 0.8893550078657577,
+        "recall": 0.9045333333333333,
+        "f1": 0.8968799576943416
+      }
+    },
+    "tfidf_logistic_unigram_bigram": {
+      "representation": "TF-IDF unigram+bigram",
+      "classifier": "LogisticRegression",
+      "training_seconds": 40.423605200019665,
+      "vocabulary_size": 100000,
+      "validation": {
+        "accuracy": 0.9069333333333334,
+        "precision": 0.8980177360459051,
+        "recall": 0.9181333333333334,
+        "f1": 0.9079641350210971
+      },
+      "test": {
+        "accuracy": 0.9070666666666667,
+        "precision": 0.8980443285528031,
+        "recall": 0.9184,
+        "f1": 0.9081081081081082
+      }
+    }
+  },
+  "baseline_confusion_matrix": [
+    [
+      3310,
+      440
+    ],
+    [
+      337,
+      3413
+    ]
+  ],
+  "baseline_classification_report": {
+    "negative": {
+      "precision": 0.9075952837949,
+      "recall": 0.8826666666666667,
+      "f1-score": 0.8949574151683115,
+      "support": 3750.0
+    },
+    "positive": {
+      "precision": 0.8858032701790812,
+      "recall": 0.9101333333333333,
+      "f1-score": 0.8978034986189662,
+      "support": 3750.0
+    },
+    "accuracy": 0.8964,
+    "macro avg": {
+      "precision": 0.8966992769869906,
+      "recall": 0.8964000000000001,
+      "f1-score": 0.8963804568936389,
+      "support": 7500.0
+    },
+    "weighted avg": {
+      "precision": 0.8966992769869906,
+      "recall": 0.8964,
+      "f1-score": 0.8963804568936389,
+      "support": 7500.0
+    }
+  },
+  "validation_selection": "tfidf_logistic_unigram_bigram",
+  "word_order": [
+    {
+      "representation": "TF-IDF unigram",
+      "text": "this movie is good",
+      "tokens": [
+        "this",
+        "movie",
+        "is",
+        "good"
+      ],
+      "tfidf_features": [
+        [
+          "good",
+          0.6736598134815897
+        ],
+        [
+          "is",
+          0.37992479458383965
+        ],
+        [
+          "movie",
+          0.511002065298024
+        ],
+        [
+          "this",
+          0.37512197405848013
+        ]
+      ],
+      "oov_tokens": [],
+      "prediction": "positive",
+      "probabilities": {
+        "negative": 0.19598781387897657,
+        "positive": 0.8040121861210234
+      }
+    },
+    {
+      "representation": "TF-IDF unigram",
+      "text": "this movie is not good",
+      "tokens": [
+        "this",
+        "movie",
+        "is",
+        "not",
+        "good"
+      ],
+      "tfidf_features": [
+        [
+          "good",
+          0.5978680987144163
+        ],
+        [
+          "is",
+          0.33718044337301556
+        ],
+        [
+          "movie",
+          0.45351055103009924
+        ],
+        [
+          "not",
+          0.46082196855725377
+        ],
+        [
+          "this",
+          0.33291797570239245
+        ]
+      ],
+      "oov_tokens": [],
+      "prediction": "positive",
+      "probabilities": {
+        "negative": 0.4900264471702105,
+        "positive": 0.5099735528297895
+      }
+    },
+    {
+      "representation": "Average Word2Vec",
+      "text": "this movie is good",
+      "tokens": [
+        "this",
+        "movie",
+        "is",
+        "good"
+      ],
+      "token_count": 4,
+      "oov_tokens": [],
+      "averaged_vector": [
+        0.22794951498508453,
+        0.1382277011871338,
+        0.20428386330604553,
+        -0.06102187931537628,
+        -0.24248751997947693,
+        0.11871457099914551,
+        -0.09511251002550125,
+        0.1370212733745575,
+        -0.14491063356399536,
+        -0.16654282808303833,
+        -0.10334579646587372,
+        0.06470128893852234,
+        0.18336611986160278,
+        0.16326674818992615,
+        -0.12216125428676605,
+        -0.11737871170043945,
+        -0.13462328910827637,
+        -0.4002915620803833,
+        -0.0969373881816864,
+        -0.14251944422721863,
+        -0.2800709903240204,
+        -0.14921921491622925,
+        0.20435822010040283,
+        0.22942733764648438,
+        0.30177071690559387,
+        0.2852074205875397,
+        -0.15890759229660034,
+        -0.07939179241657257,
+        -0.1568240523338318,
+        -0.1492193639278412,
+        0.0067557040601968765,
+        -0.22022923827171326,
+        -0.05297553911805153,
+        0.01331350114196539,
+        0.024270247668027878,
+        -0.13716959953308105,
+        0.0724368467926979,
+        -0.41060832142829895,
+        0.13591958582401276,
+        0.23712244629859924,
+        0.20381928980350494,
+        -0.026028504595160484,
+        0.3812839388847351,
+        -0.21433590352535248,
+        0.18183064460754395,
+        -0.15565146505832672,
+        -0.10001634806394577,
+        0.27475136518478394,
+        0.4702190160751343,
+        0.1206359714269638,
+        -0.22279980778694153,
+        -0.2722117602825165,
+        -0.1845560073852539,
+        0.2576553523540497,
+        0.22133712470531464,
+        -0.0412442646920681,
+        -0.13374881446361542,
+        0.1932351291179657,
+        -0.0953700840473175,
+        -0.008888252079486847,
+        -0.05315587297081947,
+        0.221389040350914,
+        -0.16386857628822327,
+        0.09412813931703568,
+        0.2754777669906616,
+        -0.1336640864610672,
+        0.08066260814666748,
+        0.052730489522218704,
+        0.04192785546183586,
+        -0.3058527112007141,
+        -0.0037919729948043823,
+        -0.19225671887397766,
+        -0.14504411816596985,
+        -0.24635016918182373,
+        0.06890346854925156,
+        -0.12090994417667389,
+        0.038415174931287766,
+        0.07037589699029922,
+        0.01278049498796463,
+        -0.050602495670318604,
+        0.09985044598579407,
+        0.06980428099632263,
+        -0.056900158524513245,
+        0.19827529788017273,
+        -0.4534151554107666,
+        0.13071602582931519,
+        -0.3003389537334442,
+        -0.2780781388282776,
+        0.06623859703540802,
+        0.13929632306098938,
+        -0.1727077066898346,
+        0.2576141655445099,
+        0.15534597635269165,
+        -0.06710109859704971,
+        -0.061685025691986084,
+        0.017233487218618393,
+        0.29679328203201294,
+        0.145199716091156,
+        -0.2096010148525238,
+        -0.043004728853702545
+      ],
+      "vector_l2_norm": 1.8662643432617188,
+      "cosine_S1_S2": 0.9766854643821716,
+      "prediction": "positive",
+      "probabilities": {
+        "negative": 0.2569153308868408,
+        "positive": 0.7430846691131592
+      }
+    },
+    {
+      "representation": "Average Word2Vec",
+      "text": "this movie is not good",
+      "tokens": [
+        "this",
+        "movie",
+        "is",
+        "not",
+        "good"
+      ],
+      "token_count": 5,
+      "oov_tokens": [],
+      "averaged_vector": [
+        0.2248244285583496,
+        0.10993138700723648,
+        0.17550548911094666,
+        -0.09557580947875977,
+        -0.2758823037147522,
+        0.11587953567504883,
+        -0.09890465438365936,
+        0.06676135957241058,
+        -0.19680935144424438,
+        -0.1556623876094818,
+        -0.06274615228176117,
+        0.05489388853311539,
+        0.15862609446048737,
+        0.2409515380859375,
+        -0.0792899876832962,
+        -0.19155384600162506,
+        -0.12550637125968933,
+        -0.3952656090259552,
+        -0.07350094616413116,
+        -0.14543357491493225,
+        -0.19754575192928314,
+        -0.07983435690402985,
+        0.2060437649488449,
+        0.19125978648662567,
+        0.30120036005973816,
+        0.22650647163391113,
+        -0.1404319703578949,
+        -0.02736029587686062,
+        -0.18053463101387024,
+        -0.12252432107925415,
+        0.05619217827916145,
+        -0.212423175573349,
+        -0.09434302151203156,
+        0.04212389141321182,
+        0.069645956158638,
+        -0.14805510640144348,
+        0.06842135637998581,
+        -0.46615272760391235,
+        0.1954103708267212,
+        0.235929936170578,
+        0.253240704536438,
+        -0.0035331533290445805,
+        0.32459717988967896,
+        -0.20692908763885498,
+        0.14066044986248016,
+        -0.07971901446580887,
+        -0.11012138426303864,
+        0.23517386615276337,
+        0.49532026052474976,
+        0.08868099004030228,
+        -0.23203900456428528,
+        -0.27615663409233093,
+        -0.14251437783241272,
+        0.1987316608428955,
+        0.22539949417114258,
+        -0.0718517079949379,
+        -0.11109320819377899,
+        0.2092045098543167,
+        -0.1098162978887558,
+        0.018635522574186325,
+        0.051409315317869186,
+        0.21127691864967346,
+        -0.14600573480129242,
+        0.11335031688213348,
+        0.2689362168312073,
+        -0.10264863073825836,
+        0.07491002976894379,
+        0.04792628437280655,
+        0.04559943825006485,
+        -0.2865600287914276,
+        0.00043135881423950195,
+        -0.1918429583311081,
+        -0.09049490094184875,
+        -0.23920831084251404,
+        -0.014797752723097801,
+        -0.17223678529262543,
+        0.03231535106897354,
+        0.04171137139201164,
+        0.04935785382986069,
+        -0.09911119937896729,
+        0.04533584043383598,
+        0.011733269318938255,
+        -0.1280796229839325,
+        0.15710842609405518,
+        -0.5309556126594543,
+        0.13630560040473938,
+        -0.27926427125930786,
+        -0.2749890685081482,
+        0.05824291706085205,
+        0.14680805802345276,
+        -0.117655910551548,
+        0.1718386858701706,
+        0.16144753992557526,
+        -0.12231326103210449,
+        -0.004141879267990589,
+        0.051872897893190384,
+        0.2928503155708313,
+        0.1771146059036255,
+        -0.1559150516986847,
+        -0.015458917245268822
+      ],
+      "vector_l2_norm": 1.8344632387161255,
+      "cosine_S1_S2": 0.9766854643821716,
+      "prediction": "negative",
+      "probabilities": {
+        "negative": 0.7508163452148438,
+        "positive": 0.24918363988399506
+      }
+    }
+  ],
+  "model_weights": {
+    "label_mapping": {
+      "negative": 0,
+      "positive": 1
+    },
+    "classes": [
+      "negative",
+      "positive"
+    ],
+    "highest_positive": [
+      [
+        "great",
+        8.923027790727097
+      ],
+      [
+        "excellent",
+        7.031771211867654
+      ],
+      [
+        "7",
+        5.933094009669933
+      ],
+      [
+        "best",
+        5.640698237479344
+      ],
+      [
+        "perfect",
+        4.86893310883196
+      ],
+      [
+        "wonderful",
+        4.812894156700426
+      ],
+      [
+        "amazing",
+        4.5553567210547365
+      ],
+      [
+        "8",
+        4.424239558513576
+      ],
+      [
+        "fun",
+        4.2843438485480005
+      ],
+      [
+        "highly",
+        4.165098895107641
+      ],
+      [
+        "loved",
+        4.160127850930879
+      ],
+      [
+        "favorite",
+        4.158019376191622
+      ],
+      [
+        "brilliant",
+        4.139672283670333
+      ],
+      [
+        "enjoyed",
+        4.1003266020010125
+      ],
+      [
+        "hilarious",
+        4.056461098676522
+      ],
+      [
+        "well",
+        4.045224342740269
+      ],
+      [
+        "today",
+        3.985276155483135
+      ],
+      [
+        "fantastic",
+        3.925698966235109
+      ],
+      [
+        "love",
+        3.9096883706083543
+      ],
+      [
+        "superb",
+        3.8618430327167594
+      ]
+    ],
+    "most_negative": [
+      [
+        "worst",
+        -10.71114462312812
+      ],
+      [
+        "bad",
+        -8.825485057832509
+      ],
+      [
+        "awful",
+        -7.568967410442338
+      ],
+      [
+        "waste",
+        -7.43395699568513
+      ],
+      [
+        "boring",
+        -6.890276237499751
+      ],
+      [
+        "poor",
+        -6.274108022660775
+      ],
+      [
+        "terrible",
+        -6.273196047247195
+      ],
+      [
+        "nothing",
+        -5.489417348663778
+      ],
+      [
+        "dull",
+        -5.098786711057978
+      ],
+      [
+        "worse",
+        -4.968730893721106
+      ],
+      [
+        "poorly",
+        -4.726845075716762
+      ],
+      [
+        "horrible",
+        -4.627804919227703
+      ],
+      [
+        "disappointing",
+        -4.449473063642208
+      ],
+      [
+        "fails",
+        -4.429438896233701
+      ],
+      [
+        "unfortunately",
+        -4.414404352003079
+      ],
+      [
+        "minutes",
+        -4.395458256551504
+      ],
+      [
+        "stupid",
+        -4.322894479944814
+      ],
+      [
+        "no",
+        -4.257926044511551
+      ],
+      [
+        "supposed",
+        -4.1035291672502225
+      ],
+      [
+        "script",
+        -4.093714190325898
+      ]
+    ],
+    "requested_features": {
+      "good": 2.485262721165155,
+      "bad": -8.825485057832509,
+      "excellent": 7.031771211867654,
+      "terrible": -6.273196047247195,
+      "not good": null
+    },
+    "bigram_features": {
+      "not good": -1.1059921847827268,
+      "very good": 1.7498258978386758
+    }
+  },
+  "error_examples": [
+    {
+      "kind": "correct",
+      "text": "So im not a big fan of Boll's work but then again not many are. I enjoyed his movie Postal (maybe im the only one). Boll apparently bought the rights to use Far Cry long ago even before the game itself was even finsished. <br /><br />People who have enjoyed killing mercs and infiltrating secret research labs located on a tropical island should be warned, that this is not Far Cry... This is something Mr Boll have schemed together along with his legion of schmucks.. Feeling loneley on the set Mr Boll invites three of his countrymen to play with. These players go by the names of Til Schweiger, Udo Kier and Ralf Moeller.<br /><br />Three names that actually have made them selfs pretty big in the movie biz. So the tale goes like this, Jack Carver played by Til Schweiger (yes Carver is German all hail the bratwurst eating dudes!!) However I find that Tils acting in this movie is pretty badass.. People have complained about how he's not really staying true to the whole Carver agenda but we only saw carver in a first person perspective so we don't really know what he looked like when he was kicking a**.. <br /><br />However, the storyline in this film is beyond demented. We see the evil mad scientist Dr. Krieger played by Udo Kier, making Genetically-Mutated-soldiers or GMS as they are called. Performing his top-secret research on an island that reminds me of \"SPOILER\" Vancouver for some reason. Thats right no palm trees here. Instead we got some nice rich lumberjack-woods. We haven't even gone FAR before I started to CRY (mehehe) I cannot go on any more.. If you wanna stay true to Bolls shenanigans then go and see this movie you will not be disappointed it delivers the true Boll experience, meaning most of it will suck.<br /><br />There are some things worth mentioning that would imply that Boll did a good work on some areas of the film such as some nice boat and fighting scenes. Until the whole cromed/albino GMS squad enters the scene and everything just makes me laugh.. The movie Far Cry reeks of scheisse (that's poop for you simpletons) from a fa,r if you wanna take a wiff go ahead.. BTW Carver gets a very annoying sidekick who makes you wanna shoot him the first three minutes he's on screen.",
+      "text_preview": "So im not a big fan of Boll's work but then again not many are. I enjoyed his movie Postal (maybe im the only one). Boll apparently bought the rights to use Far Cry long ago even before the game itself was even finsished. <br /><br />People who have enjoyed killing mercs and infiltrating secret research labs located on a tropical island should be warned, that this is not Far Cry... This is something Mr Boll have schemed together along with his legion of schmucks.. Feeling loneley on the set Mr B",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.8212568482023185,
+      "predicted_scores": {
+        "negative": 0.8212568482023185,
+        "positive": 0.17874315179768155
+      },
+      "supporting_features": [
+        [
+          "boll",
+          0.2679840257181983
+        ],
+        [
+          "far",
+          0.22986305000985094
+        ],
+        [
+          "even",
+          0.19417868308166072
+        ],
+        [
+          "not",
+          0.1770308278902922
+        ],
+        [
+          "annoying",
+          0.1553458142436731
+        ]
+      ]
+    },
+    {
+      "kind": "correct",
+      "text": "I had the terrible misfortune of having to view this \"b-movie\" in it's entirety.<br /><br />All I have to say is--- save your time and money!!! This has got to be the worst b-movie of all time, it shouldn't even be called a b-movie, more like an f-movie! Because it fails in all aspects that make a good movie: the story is not interesting at all, all of the actors are paper-thin and not at all believable, it has bad direction and the action sequences are so fake it's almost funny.......almost.<br /><br />The movie is just packed full of crappy one-liners that no respectable person could find amusing in the least little bit.<br /><br />This movie is supposed to be geared towards men, but all the women in it are SO utterly unattractive, especially that old wrinkled thing that comes in towards the end. They try to appear sexy in those weird, horrible costumes and they fail miserably!!!<br /><br />Even some of the most ridiculous b-movies will still give you some laughs, but this is just too painful to watch!!",
+      "text_preview": "I had the terrible misfortune of having to view this \"b-movie\" in it's entirety.<br /><br />All I have to say is--- save your time and money!!! This has got to be the worst b-movie of all time, it shouldn't even be called a b-movie, more like an f-movie! Because it fails in all aspects that make a good movie: the story is not interesting at all, all of the actors are paper-thin and not at all believable, it has bad direction and the action sequences are so fake it's almost funny.......almost.<br",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.9939772394684268,
+      "predicted_scores": {
+        "negative": 0.9939772394684268,
+        "positive": 0.006022760531573297
+      },
+      "supporting_features": [
+        [
+          "worst",
+          0.6889360594257635
+        ],
+        [
+          "terrible",
+          0.4635215955230832
+        ],
+        [
+          "bad",
+          0.40725430508165306
+        ],
+        [
+          "fails",
+          0.4022276634641927
+        ],
+        [
+          "horrible",
+          0.3631351037156434
+        ]
+      ]
+    },
+    {
+      "kind": "correct",
+      "text": "I'm not sure why the producers needed to trade on the name of a somewhat successful movie franchise because the title suggests that it is a sequel to the first three movies..which it is not. Even though Marques Houston did appear in \"HP3\", he played a totally different character (he was, eight years older) in this film. Okay...so Reid and Martin weren't the most talented and couldn't carry a film all by themselves..but to trade on the HP franchise seems to me that there could have made some sort of reference (albeit minor) to the earlier movies. I'm sure everyone who wanted to see it was \"hoodwinked\"--into thinking that they were seeing a sequel--not a totally different film with a familiar name. And I'm sorry...Kym Whitley is not funny, and could not hold a candle to the late Robin Harris, Ketty Lester, or DC Curry in the earlier films. Although Meagen Good and Mari Morrow are a substantial visual diversion...I have to give this a THUMBS DOWN!! Just naming the film \"Down to the Last Minute\" would have been OK. Furthermore, the Hudlin brothers (who produced the first three movies) were not involved in the making of this film.",
+      "text_preview": "I'm not sure why the producers needed to trade on the name of a somewhat successful movie franchise because the title suggests that it is a sequel to the first three movies..which it is not. Even though Marques Houston did appear in \"HP3\", he played a totally different character (he was, eight years older) in this film. Okay...so Reid and Martin weren't the most talented and couldn't carry a film all by themselves..but to trade on the HP franchise seems to me that there could have made some sort",
+      "true_label": "negative",
+      "predicted_label": "negative",
+      "confidence": 0.858248825626068,
+      "predicted_scores": {
+        "negative": 0.858248825626068,
+        "positive": 0.141751174373932
+      },
+      "supporting_features": [
+        [
+          "not",
+          0.38965674190193667
+        ],
+        [
+          "sorry",
+          0.2298550746254249
+        ],
+        [
+          "franchise",
+          0.20757120746933075
+        ],
+        [
+          "sequel",
+          0.17920179754006302
+        ],
+        [
+          "couldn't",
+          0.17834610684489235
+        ]
+      ]
+    },
+    {
+      "kind": "incorrect",
+      "text": "The three main characters are all hopeless, and yet you only feel sorry for one of them: Ernesto, hopelessly devoted to Mercedes. This was part of the frustration: screaming at Mercedes to get a clue and ditch the no-good Harry, to no avail.<br /><br />Then there's the satisfaction: Steve Buscemi has a great part as a transvestite, and Harvey Keitel's moving story of his indignity playing a gorilla for a cheap TV movie is incredible. When you least expect it, Quentin Tarintino is doing half a monologue, and Anthony Quinn turns Ernesto into a wealthy man.<br /><br />Time and again great moments appear in the story, but in the end it's hard to know what to feel about this movie. It doesn't have a happy ending, or even a complete one, but it somehow feels right.<br /><br />This movie is strange, but then so am I; no wonder I liked it.",
+      "text_preview": "The three main characters are all hopeless, and yet you only feel sorry for one of them: Ernesto, hopelessly devoted to Mercedes. This was part of the frustration: screaming at Mercedes to get a clue and ditch the no-good Harry, to no avail.<br /><br />Then there's the satisfaction: Steve Buscemi has a great part as a transvestite, and Harvey Keitel's moving story of his indignity playing a gorilla for a cheap TV movie is incredible. When you least expect it, Quentin Tarintino is doing half a mo",
+      "true_label": "positive",
+      "predicted_label": "negative",
+      "confidence": 0.6108428328101966,
+      "predicted_scores": {
+        "negative": 0.6108428328101966,
+        "positive": 0.3891571671898034
+      },
+      "supporting_features": [
+        [
+          "no",
+          0.5035343174278584
+        ],
+        [
+          "cheap",
+          0.286379340701008
+        ],
+        [
+          "sorry",
+          0.2626432581929623
+        ],
+        [
+          "wonder",
+          0.2167375915560654
+        ],
+        [
+          "half",
+          0.20455128606640283
+        ]
+      ]
+    },
+    {
+      "kind": "incorrect",
+      "text": "This is an OK adaptation of the breath taking book of Dan Brown. I can't say it is novel or very good but they made a movie that you can enjoy. Given the excellent story, the result could have been better though. The movie is pretty long but at the end I was feeling like some things were missing. Sound effects and sound tracks were very good. Acting was well done but the character development phase was very weak. For people who didn't read the book, things may look happening too quickly. From my point of view, instead of trying to put as much as stuff from the book, they could have tried to do the important scenes more proper. What makes the book very good was all the puzzle like story combined with the excellent portrait of Vatican. You see neither of it in the movie. Too much rush and using the time not in a good way, these are main problems of the movie. So, it is worth watching but could have been done better.",
+      "text_preview": "This is an OK adaptation of the breath taking book of Dan Brown. I can't say it is novel or very good but they made a movie that you can enjoy. Given the excellent story, the result could have been better though. The movie is pretty long but at the end I was feeling like some things were missing. Sound effects and sound tracks were very good. Acting was well done but the character development phase was very weak. For people who didn't read the book, things may look happening too quickly. From my",
+      "true_label": "positive",
+      "predicted_label": "negative",
+      "confidence": 0.7054674511527941,
+      "predicted_scores": {
+        "negative": 0.7054674511527941,
+        "positive": 0.29453254884720587
+      },
+      "supporting_features": [
+        [
+          "book",
+          0.5598741849057098
+        ],
+        [
+          "weak",
+          0.3039180259034124
+        ],
+        [
+          "instead",
+          0.28257982001592036
+        ],
+        [
+          "could",
+          0.25143171340061526
+        ],
+        [
+          "was",
+          0.22444713700762917
+        ]
+      ]
+    },
+    {
+      "kind": "incorrect",
+      "text": "A fey story of a Martian attempt to colonize Earth. (Things must be pretty bad back on Mars.) Two state troopers investigate the scene of a reported UFO crash. Whatever landed is buried under the ice at Tracy's Pond but there are footsteps in the snow leading to a nearby diner.<br /><br />The diner has had no customers since eleven o'clock that morning. Now there are a handful of bus passengers sitting around waiting for permission to cross a structurally weak bridge. The bus driver insists that six passengers were aboard the bus, although he didn't notice who they were. The problem is that there are now SEVEN people waiting for the journey to be resumed. One of them is an alien, but which one? All of them are suspect. There's the crazy old man (Jack Elam), of course, who seems to exercise a sub rosa wit. There's a blustering businessman who must get to Boston (John Hoyt). A young couple on their honeymoon. (Execrable performance by the husband, Ron Kipling.) Except for the couples, nobody has noticed anyone else. And even the couples are suspicious of each other. Bride to newly minted husband: \"I could have sworn you had a mole on your chin.\" The story continues in a sprightly but slightly spooky way -- the phone rings for no reason, the lights go on and off, the juke box turns itself on -- and none of it is to be taken seriously.<br /><br />It's a thoroughly enjoyable ensemble play and the climactic revelation is worth a chuckle. There is no discernible \"depth\" to it. It's not a moral message about pod people masquerading as normal citizens. It's not a warning of any kind, just a fairy tale that diverts and amuses.<br /><br />I always enjoy it when it's on. It's especially interesting to see John Hoyt as the irritable and impatient businessman, knowing that in 1954 he was the Roman Senator who masterminded the assassination of Julius Caesar in MGM's version of Shakespeare's play. And here he is -- with three arms.<br /><br />Oops.",
+      "text_preview": "A fey story of a Martian attempt to colonize Earth. (Things must be pretty bad back on Mars.) Two state troopers investigate the scene of a reported UFO crash. Whatever landed is buried under the ice at Tracy's Pond but there are footsteps in the snow leading to a nearby diner.<br /><br />The diner has had no customers since eleven o'clock that morning. Now there are a handful of bus passengers sitting around waiting for permission to cross a structurally weak bridge. The bus driver insists that",
+      "true_label": "positive",
+      "predicted_label": "negative",
+      "confidence": 0.7251585646680533,
+      "predicted_scores": {
+        "negative": 0.7251585646680533,
+        "positive": 0.2748414353319467
+      },
+      "supporting_features": [
+        [
+          "no",
+          0.27828966097287045
+        ],
+        [
+          "bad",
+          0.22199981004146566
+        ],
+        [
+          "weak",
+          0.15624759603847785
+        ],
+        [
+          "attempt",
+          0.13350233635159406
+        ],
+        [
+          "to",
+          0.11695703647892634
+        ]
+      ]
+    }
+  ],
+  "tests_passed": 9
+}
