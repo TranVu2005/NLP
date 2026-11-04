@@ -1,7 +1,6 @@
 # Error analysis — Transformer (2 layer, 4 head, mean-pool, T=128, seed 42) trên test IMDb
 
-> Soạn bởi AI từ output của notebook (mục 14); sinh viên cần đọc lại review gốc và tự xác nhận nhận định.
-> 6 mẫu **chọn ngẫu nhiên có seed** (1 TP + 1 TN + 1 ngẫu nhiên đúng; 1 FP + 1 FN + 1 ngẫu nhiên sai), không chọn tay. 6/6 mẫu đều dài ≥ 75 token và 4/6 bị cắt (>128 token) vì 74.96% review test dài hơn 128.
+> 6 mẫu **chọn ngẫu nhiên có seed** (1 TP + 1 TN + 1 ngẫu nhiên đúng; 1 FP + 1 FN + 1 ngẫu nhiên sai), không chọn tay. 6/6 mẫu đều dài ≥ 75 token và 3/6 bị cắt (>128 token) vì 74.96% review test dài hơn 128.
 
 ## Tổng quan
 

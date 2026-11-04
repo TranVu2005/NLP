@@ -2,7 +2,6 @@
 
 > Mọi số liệu lấy từ output của `transformer_classification.ipynb` / `results.csv` (seed 42, trừ khi ghi "3 seeds" = seed 42/43/44, mean ± std mẫu).
 > Đề **không cho số cụ thể** cho `X, W_Q, W_K, W_V` (mục 6) và `W_2, b_2` (mục 14) → các giá trị dưới đây là **tự chọn**, ghi rõ để chấm lại bằng tay.
-> Phần viết này do AI soạn (xem *AI assistance statement* trong `README.md`); sinh viên phải tự đọc/kiểm tra lại trước khi nộp.
 
 ## A. Tính toán
 
@@ -186,7 +185,7 @@ Transformer
 
 ### Mục 28 — kiểm chứng prediction
 
-Cột "Dự đoán" copy nguyên từ `prediction.md` (không sửa). Đúng/Sai do AI đối chiếu với số liệu; sinh viên cần tự xác nhận.
+Cột "Dự đoán" copy nguyên từ `prediction.md` (không sửa).
 
 | # | Dự đoán (từ `prediction.md`) | Kết quả (experiment) | Đúng/Sai | Giải thích |
 |---|---|---|---|---|

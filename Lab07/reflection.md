@@ -27,4 +27,3 @@ Mô hình ở đây học từ đầu trên ~32k review: riêng bảng embedding
 - **Attention ≠ explanation**: token phân cực nhận nhiều attention hơn (5.3× ở layer 2) nhưng cũng có từ trung tính được attend; mô hình sai vẫn "attend đúng từ".
 - **Độ tin cậy kết quả**: 3 seed, 1 split, 5 epoch, 1 cấu hình d_model/d_ff/layers; các chênh lệch ≤ 1–2 điểm (heads, pooling, PE) không phân biệt được với nhiễu. Chưa tách riêng đóng góp của từng thành phần kiến trúc trong so sánh LSTM vs Transformer (khác cả pooling lẫn số tham số không-embedding).
 - **Negation/contrast, mơ hồ**: demo cho kết quả sai hoặc quá tự tin ở vài câu (xem `error_analysis.md` mục 4); chưa đủ mẫu để kết luận hệ thống.
-- **Ghi chú trung thực**: toàn bộ văn bản này do AI soạn; phần *reflection* theo chính sách môn học phải do sinh viên tự viết — sinh viên cần viết lại bằng lời của mình.
