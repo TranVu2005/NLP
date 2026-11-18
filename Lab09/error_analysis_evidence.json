@@ -1,0 +1,186 @@
+{
+ "model": "ft_bert-base-cased_A_lr5e-05_ep3_s42",
+ "selection": "seed 42; 5 spurious + 5 missing + 5 boundary + 3 wrong_type",
+ "counts": {
+  "Baseline": {
+   "wrong_type": 508,
+   "spurious": 315,
+   "boundary": 317,
+   "missing": 143,
+   "boundary+type": 100,
+   "total": 1383
+  },
+  "Transformer (A, s42)": {
+   "wrong_type": 229,
+   "spurious": 148,
+   "boundary": 78,
+   "missing": 63,
+   "boundary+type": 65,
+   "total": 583
+  }
+ },
+ "samples": [
+  {
+   "id": "527",
+   "error_type": "spurious",
+   "text": "WESTERN DIVISION",
+   "gold": "—",
+   "transformer_pred": "WESTERN DIVISION [MISC]",
+   "baseline_same_error": true,
+   "explanation": "Spurious (conf 0.998). Gold gán `O` nhưng model (và baseline) cùng đoán MISC cho `WESTERN DIVISION`. Đây chủ yếu là **nhãn không nhất quán trong CoNLL**: trong train, từ `DIVISION` mang nhãn `I-MISC` 48 lần và `O` 46 lần, tức gần như tung đồng xu; model học theo thống kê (tên giải/khu vực IN HOA ≈ MISC) và đoán MISC rất tự tin. Không phải lỗi hiểu ngữ cảnh mà là ambiguous annotation."
+  },
+  {
+   "id": "359",
+   "error_type": "spurious",
+   "text": "NORTHEAST DIVISION",
+   "gold": "—",
+   "transformer_pred": "NORTHEAST DIVISION [MISC]",
+   "baseline_same_error": true,
+   "explanation": "Spurious (conf 0.988). Cùng nguyên nhân với câu 527: tên division IN HOA trong bảng xếp hạng NBA/NHL, gold `O`, train tách đôi 48 `I-MISC` / 46 `O` cho từ `DIVISION`. Baseline cũng sai giống hệt — cho thấy đây là nhiễu nhãn chứ không phải điểm yếu riêng của Transformer."
+  },
+  {
+   "id": "1611",
+   "error_type": "spurious",
+   "text": "Slaughter Heifers - Select and Choice 2-3 1050-1100 lbs 67.00 .",
+   "gold": "—",
+   "transformer_pred": "Slaughter Heifers [ORG]",
+   "baseline_same_error": false,
+   "explanation": "Spurious (conf 0.609, thấp). Dòng báo cáo giá gia súc (`Slaughter Heifers - Select and Choice ...`) là domain/định dạng hiếm trong train: hai từ viết hoa liền nhau, không có cue ngữ cảnh nào của tổ chức. `Slaughter` và `Heifers` đều bị WordPiece tách (`S ##lau ##ghter`, `He ##ifer ##s`) nên biểu diễn nghèo; model suy diễn 'cụm viết hoa ≈ tên riêng ≈ ORG'. Rare/out-of-pattern text + subword; confidence thấp là tín hiệu đúng (baseline không lỗi câu này)."
+  },
+  {
+   "id": "1434",
+   "error_type": "spurious",
+   "text": "Maize ( Dent ) 113 114 113.7 112",
+   "gold": "—",
+   "transformer_pred": "Maize [PER]",
+   "baseline_same_error": true,
+   "explanation": "Spurious (conf 0.949, cao). Dòng giá ngũ cốc `Maize ( Dent ) 113 114 ...` có đúng khuôn của dòng thể thao `Tên ( Đội ) số số ...`: trong train, từ viết hoa đứng ngay trước `(` mang nhãn `I-PER` 1,530 lần (so với 170 `O`). Model dùng pattern vị trí/định dạng thay vì nghĩa của `Maize`/`Dent` (cũng bị tách: `Mai ##ze`) nên đoán PER rất tự tin; baseline (feature `+1:lower=(`) cùng đoán `B-PER` cho `Maize`; Transformer còn thêm `Dent` thành PER thứ hai. Ví dụ điển hình của lỗi context-dependent bị khuôn bề mặt đánh lừa."
+  },
+  {
+   "id": "1297",
+   "error_type": "spurious",
+   "text": "A meeting with the Pope is also planned , \" Dariusz Rosati told a news conference .",
+   "gold": "—",
+   "transformer_pred": "Pope [PER]",
+   "baseline_same_error": false,
+   "explanation": "Spurious (conf 0.562, thấp). `the Pope` là chức danh/vai trò, không phải tên riêng; gold `O`. Trong train `Pope` chỉ xuất hiện 1 lần (`B-PER`, trong `Pope John Paul II`) nên model coi `Pope` viết hoa giữa câu là người. Ranh giới khái niệm 'entity có tên' vs 'danh xưng' mơ hồ; baseline cũng sai nhưng theo kiểu khác (`B-LOC`). Rare entity + ambiguous entity."
+  },
+  {
+   "id": "356",
+   "error_type": "missing",
+   "text": "League teams after games played on Thursday ( tabulate under",
+   "gold": "League [ORG]",
+   "transformer_pred": "—",
+   "baseline_same_error": true,
+   "explanation": "Missing (conf 0.888 cho `O`). Câu bị cắt (`League teams after games played on Thursday ( tabulate under`) — phần đầu tên giải (vd. `National Hockey`) nằm ở dòng trước, gold chỉ còn `League` = ORG. Không còn ngữ cảnh để model suy ra tổ chức nên coi `League` là danh từ thường ở đầu câu. Lỗi do **dữ liệu bị cắt/nhiễu ngữ cảnh** chứ không phải model yếu; baseline cũng bỏ sót."
+  },
+  {
+   "id": "2350",
+   "error_type": "missing",
+   "text": "In a stand some analysts linked to controversy over Singapore 's caning of an American teenager for vandalism , then-U.S. Trade Representative Mickey Kantor had said the meeting ought to be held where the WTO was going to be headquartered .",
+   "gold": "then-U.S. [MISC]",
+   "transformer_pred": "—",
+   "baseline_same_error": true,
+   "explanation": "Missing (conf 1.000 cho `O`, sai rất tự tin). Token `then-U.S.` là một *word* gộp trong CoNLL (gold MISC vì dạng tính từ quốc tịch). WordPiece tách thành `then - U . S .`; dưới Strategy A dự đoán của word chỉ lấy ở **subword đầu `then`**: chữ thường, thông dụng, không mang tín hiệu thực thể, trong khi tín hiệu (`U.S.`) nằm ở các subword sau → đây là ví dụ rõ nhất của **subword alignment error**. Baseline cũng cho `O` (token hiếm, không có feature nào gợi ý entity)."
+  },
+  {
+   "id": "291",
+   "error_type": "missing",
+   "text": "CRICKET - WEST INDIES 172 ALL OUT IN 49.2 OVERS V AUSTRALIA .",
+   "gold": "WEST INDIES [LOC]",
+   "transformer_pred": "—",
+   "baseline_same_error": false,
+   "explanation": "Missing (conf 0.919 cho `O`). Tiêu đề cricket IN HOA `CRICKET - WEST INDIES 172 ALL OUT ...`: model nhận ra `AUSTRALIA` (LOC, từ quen) nhưng bỏ `WEST INDIES` (3+3 subword: `W ##ES ##T`, `IN ##DI ##ES`). Khi cả câu viết hoa, tín hiệu viết hoa mất tác dụng nên chỉ còn lại tri thức từ vựng; `West Indies` hiếm và nhập nhằng (đội tuyển/khu vực địa lý, gold là LOC theo quy ước CoNLL cho đội quốc gia). Baseline gán `B-LOC` cho `WEST` nhưng `INDIES` là `O` nên cũng không đúng entity. Rare entity + domain (headline IN HOA)."
+  },
+  {
+   "id": "2267",
+   "error_type": "missing",
+   "text": "Deligst 20/11/96 5,500 Indonesia",
+   "gold": "Deligst [MISC]",
+   "transformer_pred": "—",
+   "baseline_same_error": true,
+   "explanation": "Missing (conf 0.844). `Deligst` (loại hàng/sản phẩm trong bảng giá, gold MISC) là từ lạ hoàn toàn, tách `Del ##ig ##st`, đứng đầu dòng cạnh ngày và số: không có ngữ cảnh ngôn ngữ nào để suy ra là MISC. Model cho `O`; baseline cũng vậy. Rare entity thuần tuý — loại MISC khó vì không có khuôn từ vựng (xem Exp 4)."
+  },
+  {
+   "id": "3307",
+   "error_type": "missing",
+   "text": "Association games on Friday ( home team in CAPS ) :",
+   "gold": "Association [ORG]",
+   "transformer_pred": "—",
+   "baseline_same_error": true,
+   "explanation": "Missing (conf 0.982). Giống câu 356: câu bị cắt đầu dòng (`Association games on Friday ( home team in CAPS ) :`), gold gán ORG cho mỗi mình từ `Association` (phần còn lại của tên giải nằm ở dòng trước). Model coi nó là danh từ chung, hợp lý nếu chỉ nhìn câu này. Lỗi do cách chia câu/nhãn của dataset; baseline cũng bỏ sót."
+  },
+  {
+   "id": "2771",
+   "error_type": "boundary",
+   "text": "SOCCER - LEADING SCOTTISH PREMIER DIVISION SCORERS .",
+   "gold": "SCOTTISH PREMIER DIVISION [MISC]",
+   "transformer_pred": "SCOTTISH [MISC]",
+   "baseline_same_error": true,
+   "explanation": "Boundary (conf 0.992). Tên giải IN HOA 3 từ: model nhận `SCOTTISH` (quen thuộc, MISC khi đứng trước danh từ) nhưng cho `PREMIER DIVISION` là `O`. Lỗi **ranh giới**: biết loại, sai điểm kết thúc. `SCOTTISH`/`PREMIER`/`DIVISION` đều là từ phổ biến nhưng cả cụm IN HOA không chuẩn trong tiêu đề; kết hợp với nhiễu nhãn `DIVISION` (48 `I-MISC` / 46 `O`) làm model không chắc cụm kéo dài đến đâu. Baseline giống hệt."
+  },
+  {
+   "id": "606",
+   "error_type": "boundary",
+   "text": "1. FC Cologne 16 8 2 6 31 27 26",
+   "gold": "1. FC Cologne [ORG]",
+   "transformer_pred": "FC Cologne [ORG]",
+   "baseline_same_error": true,
+   "explanation": "Boundary (conf 0.999). Dòng bảng xếp hạng `1. FC Cologne 16 8 2 6 ...`: `1.` vừa là số thứ tự hàng vừa là một phần tên câu lạc bộ (`1. FC Köln`). Gold gộp `1.` vào entity; model (và baseline) coi `1.` là số thứ tự `O` và bắt đầu entity từ `FC`. Ambiguity thật sự về ranh giới: không thể phân biệt 'rank' và 'tên' chỉ từ câu này; chỉ biết được nếu có tri thức về tên CLB Đức."
+  },
+  {
+   "id": "3410",
+   "error_type": "boundary",
+   "text": "Ajax face AZ Alkmaar away on Sunday and Feyenoord , eliminated from the UEFA Cup after losing 4-2 on aggregate to Tenerife on Tuesday , travel to De Graafschap Doetinchem .",
+   "gold": "De Graafschap Doetinchem [ORG]",
+   "transformer_pred": "Graafschap [ORG]",
+   "baseline_same_error": false,
+   "explanation": "Boundary (conf 0.640, thấp). Tên CLB Hà Lan nhiều từ xa lạ: `De` (mạo từ nước ngoài), `Graafschap`, `Doetinchem` (4 subword: `Do ##eti ##nch ##em`). Chuỗi dự đoán `B-LOC I-ORG I-LOC` mâu thuẫn nội bộ (mỗi token softmax độc lập, không ràng buộc BIO) → entity nhận đúng chỉ phần giữa `Graafschap`. Rare entity + multi-token + thiếu ràng buộc chuỗi; baseline sai kiểu khác (`B-PER I-PER`)."
+  },
+  {
+   "id": "1940",
+   "error_type": "boundary",
+   "text": "The basket comprises Algeria 's Saharan Blend , Indonesia 's Minas , Nigeria 's Bonny Light , Saudi Arabia 's Arabian Light , Dubai of the UAE , Venezuela 's Tia Juana and Mexico 's Isthmus .",
+   "gold": "Bonny Light [MISC]",
+   "transformer_pred": "Light [MISC]",
+   "baseline_same_error": false,
+   "explanation": "Boundary (conf 0.365, rất thấp). Tên dầu thô `Bonny Light` (cùng danh sách `Saharan Blend`, `Arabian Light` — các loại này model làm đúng nhờ khuôn lặp trong cùng câu): `Bonny` (`Bonn ##y`, giống địa danh Bonn) bị đoán `B-LOC` nên entity MISC chỉ còn `Light` (`B-LOC I-MISC` — chuỗi BIO không hợp lệ). Rare entity + ranh giới + thiếu ràng buộc chuỗi; confidence thấp phản ánh đúng sự không chắc chắn."
+  },
+  {
+   "id": "183",
+   "error_type": "boundary",
+   "text": "Efes Pilsen ( Turkey ) 9 7 2 16",
+   "gold": "Efes Pilsen [ORG]",
+   "transformer_pred": "Efes [ORG]",
+   "baseline_same_error": false,
+   "explanation": "Boundary (conf 0.923). Tên đội `Efes Pilsen` (cạnh `( Turkey )` ở dòng bảng bóng rổ): `Efes` (`E ##fe ##s`) nhận đúng ORG nhưng `Pilsen` (`Pi ##ls ##en`, trùng tên thành phố Séc/ loại bia) bị đoán `I-PER` → chuỗi `B-ORG I-PER` hợp lệ theo conlleval là ORG + PER riêng, entity gold không khớp. Rare/ambiguous word + subword; baseline lại đoán cả hai là PER."
+  },
+  {
+   "id": "155",
+   "error_type": "wrong_type",
+   "text": "Bowyer , who moved to the Yorkshire club in August for 3.5 million pounds ( $ 5.8 million ) , was expected to play against Middlesbrough on Saturday .",
+   "gold": "Yorkshire [LOC]",
+   "transformer_pred": "Yorkshire [ORG]",
+   "baseline_same_error": true,
+   "explanation": "Wrong type (cả baseline lẫn Transformer). Trong `the Yorkshire club` model hiểu đúng ngữ nghĩa là *đội bóng* (metonymy: địa danh dùng thay tên đội) và gán ORG; gold ghi LOC. Trong train `Yorkshire` là `B-ORG` 13 lần và không bao giờ LOC ⇒ model đi theo đa số, còn nhãn test là biến thể ít gặp. Ambiguous entity/ nhãn không nhất quán theo quy ước LOC-vs-ORG của CoNLL cho tên đội thể thao."
+  },
+  {
+   "id": "421",
+   "error_type": "wrong_type",
+   "text": "Philadelphia , which fell from an NFC East tie with the Dallas Cowboys and Washington Redskins , go on the road against the New York Jets and then entertain Arizona .",
+   "gold": "Philadelphia [LOC]",
+   "transformer_pred": "Philadelphia [ORG]",
+   "baseline_same_error": true,
+   "explanation": "Wrong type (cả hai model). `Philadelphia, which fell from an NFC East tie ... go on the road against the New York Jets` rõ ràng chỉ *đội* NFL (ORG); gold ghi LOC. Train: `Philadelphia` = `B-ORG` 11 lần, `B-LOC` 1 lần. Đây là phân biệt LOC/ORG phụ thuộc ngữ cảnh mà model làm đúng về ngữ nghĩa nhưng sai theo gold; xem thêm mục context analysis (`CHICAGO`, `WASHINGTON`: nhãn phụ thuộc cả layout `X AT Y` vs bảng điểm)."
+  },
+  {
+   "id": "909",
+   "error_type": "wrong_type",
+   "text": "* The Democratic Convention signed an agreement on government and parliamentary support with its coalition partners the Social Democratic Union and the Hungarian Democratic Union ( UDMR ) .",
+   "gold": "Democratic Convention [MISC]",
+   "transformer_pred": "Democratic Convention [ORG]",
+   "baseline_same_error": false,
+   "explanation": "Wrong type (baseline lại đoán đúng MISC). `The Democratic Convention` là một đảng/liên minh chính trị ở Romania, đứng cùng `Social Democratic Union`, `Hungarian Democratic Union` (UDMR) — theo ngữ nghĩa là ORG và model đoán ORG; gold ghi MISC. Tên đảng/liên minh chính trị là ranh giới ORG vs MISC nổi tiếng mơ hồ của CoNLL; không thể xác định từ câu này đâu là nhãn 'đúng'. Ambiguous entity."
+  }
+ ]
+}

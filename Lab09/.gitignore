@@ -1,0 +1,7 @@
+runs/*/model.pt
+runs/baseline/model.joblib
+runs_*.log
+data_cache/*.jsonl
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/

@@ -1,0 +1,206 @@
+{
+ "name": "ft_bert-base-cased_A_lr5e-05_ep3_s42",
+ "config": {
+  "model_name": "bert-base-cased",
+  "strategy": "A",
+  "max_len": 256,
+  "batch_size": 16,
+  "lr": 5e-05,
+  "epochs": 3,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "dropout": 0.1,
+  "fp16": true,
+  "grad_clip": 1.0,
+  "seed": 42,
+  "pretrained": true
+ },
+ "params_total": 107726601,
+ "params_trainable": 107726601,
+ "train_time_s": 448.9663891,
+ "peak_mem_mb": 2945.57373046875,
+ "best_epoch": 3,
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.17609902156160503,
+   "val_loss": 0.041905582508172425,
+   "val_entity_f1": 0.9327294078174803,
+   "val_token_acc": 0.9884739690822009,
+   "elapsed_s": 147.96520079999937
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.023606887034255616,
+   "val_loss": 0.03905241511970158,
+   "val_entity_f1": 0.941275167785235,
+   "val_token_acc": 0.9904404034110821,
+   "elapsed_s": 309.01283519999924
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.00921084074874513,
+   "val_loss": 0.0367075279282519,
+   "val_entity_f1": 0.9494137353433836,
+   "val_token_acc": 0.9916864608076009,
+   "elapsed_s": 448.7194264000009
+  }
+ ],
+ "val": {
+  "entity": {
+   "PER": {
+    "precision": 0.9677245831091985,
+    "recall": 0.9766558089033659,
+    "f1": 0.9721696838692245,
+    "tp": 1799,
+    "fp": 60,
+    "fn": 43,
+    "support": 1842
+   },
+   "ORG": {
+    "precision": 0.9184423218221895,
+    "recall": 0.9321401938851603,
+    "f1": 0.925240562546262,
+    "tp": 1250,
+    "fp": 111,
+    "fn": 91,
+    "support": 1341
+   },
+   "LOC": {
+    "precision": 0.9699617695248498,
+    "recall": 0.9667936853565596,
+    "f1": 0.9683751363140677,
+    "tp": 1776,
+    "fp": 55,
+    "fn": 61,
+    "support": 1837
+   },
+   "MISC": {
+    "precision": 0.8901795142555439,
+    "recall": 0.9143167028199566,
+    "f1": 0.9020866773675762,
+    "tp": 843,
+    "fp": 104,
+    "fn": 79,
+    "support": 922
+   },
+   "micro": {
+    "precision": 0.9449816605535178,
+    "recall": 0.9538875799394143,
+    "f1": 0.9494137353433836,
+    "tp": 5668,
+    "fp": 330,
+    "fn": 274,
+    "support": 5942
+   },
+   "macro": {
+    "precision": 0.9365770471779454,
+    "recall": 0.9474765977412607,
+    "f1": 0.9419680150242826
+   }
+  },
+  "token": {
+   "precision": 0.9600278875203346,
+   "recall": 0.9603626641869115,
+   "f1": 0.9601952466732524,
+   "tp": 8262,
+   "fp": 344,
+   "fn": 341,
+   "support": 8603,
+   "accuracy": 0.9916864608076009,
+   "n_tokens": 51362,
+   "majority_O_accuracy": 0.8325026284023208
+  },
+  "loss": 0.0367075279282519
+ },
+ "test": {
+  "entity": {
+   "PER": {
+    "precision": 0.96,
+    "recall": 0.9647495361781077,
+    "f1": 0.9623689080814313,
+    "tp": 1560,
+    "fp": 65,
+    "fn": 57,
+    "support": 1617
+   },
+   "ORG": {
+    "precision": 0.8941736028537456,
+    "recall": 0.9054786273329319,
+    "f1": 0.899790607239007,
+    "tp": 1504,
+    "fp": 178,
+    "fn": 157,
+    "support": 1661
+   },
+   "LOC": {
+    "precision": 0.9302741358760429,
+    "recall": 0.9358513189448441,
+    "f1": 0.9330543933054393,
+    "tp": 1561,
+    "fp": 117,
+    "fn": 107,
+    "support": 1668
+   },
+   "MISC": {
+    "precision": 0.784,
+    "recall": 0.8376068376068376,
+    "f1": 0.809917355371901,
+    "tp": 588,
+    "fp": 162,
+    "fn": 114,
+    "support": 702
+   },
+   "micro": {
+    "precision": 0.9089799476896251,
+    "recall": 0.9229815864022662,
+    "f1": 0.9159272599490468,
+    "tp": 5213,
+    "fp": 522,
+    "fn": 435,
+    "support": 5648
+   },
+   "macro": {
+    "precision": 0.8921119346824471,
+    "recall": 0.9109215800156804,
+    "f1": 0.9012828159994446
+   }
+  },
+  "token": {
+   "precision": 0.9208703050929865,
+   "recall": 0.9339250493096647,
+   "f1": 0.9273517351123081,
+   "tp": 7576,
+   "fp": 651,
+   "fn": 536,
+   "support": 8112,
+   "accuracy": 0.9833100032303219,
+   "n_tokens": 46435,
+   "majority_O_accuracy": 0.8253041886508022
+  },
+  "loss": 0.09029441570406442
+ },
+ "truncated": {
+  "train": {
+   "sentences": 0,
+   "words": 0
+  },
+  "validation": {
+   "sentences": 0,
+   "words": 0
+  },
+  "test": {
+   "sentences": 0,
+   "words": 0
+  }
+ },
+ "hardware": {
+  "python": "3.14.5",
+  "torch": "2.12.0+cu126",
+  "transformers": "5.12.1",
+  "cuda": true,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "gpu_mem_gb": 6.44
+ }
+}
