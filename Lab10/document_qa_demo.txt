@@ -1,0 +1,68 @@
+==================================================================================================== 
+Wikipedia-style paragraph: Transformer and BERT
+The Transformer is a neural network architecture introduced in 2017 in the paper "Attention Is All You Need" by researchers at Google. It replaces recurrence with self-attention, which lets every token in a sequence attend directly to every other token. BERT, short for Bidirectional Encoder Representations from Transformers, was released by Google in 2018. BERT uses only the encoder part of the Transformer and is pretrained with two objectives: masked language modeling and next sentence prediction. The base version of BERT has 12 layers, a hidden size of 768 and 12 attention heads, giving about 110 million parameters. After pretraining, BERT can be fine-tuned for tasks such as text classification, named entity recognition and question answering by adding a small prediction head on top of its contextual representations.
+
+Q: When was the Transformer introduced?
+   A: '2017'  [chars 63-67, score 9.40, margin(score-null) +20.12, confidence 0.97, windows 1]
+   top-k: '2017' 0.97; 'in 2017' 0.02; 'introduced in 2017' 0.00
+   sentence: The Transformer is a neural network architecture introduced in 2017 in the paper "Attention Is All You Need" by researchers at Google.
+Q: Who introduced the Transformer?
+   A: 'researchers at Google'  [chars 112-133, score 7.84, margin(score-null) +18.87, confidence 0.46, windows 1]
+   top-k: 'researchers at Google' 0.46; 'Google' 0.46; 'the paper "Attention Is All You Need" by researchers at Google' 0.03
+   sentence: The Transformer is a neural network architecture introduced in 2017 in the paper "Attention Is All You Need" by researchers at Google.
+Q: What does the Transformer use instead of recurrence?
+   A: 'self-attention'  [chars 163-177, score 16.16, margin(score-null) +28.37, confidence 0.85, windows 1]
+   top-k: 'self-attention' 0.85; 'self-attention, which lets every token in a sequence attend directly to every other token' 0.14; 'self-attention, which lets every token in a sequence attend directly to every other token.' 0.00
+   sentence: It replaces recurrence with self-attention, which lets every token in a sequence attend directly to every other token.
+Q: What are the two pretraining objectives of BERT?
+   A: 'masked language modeling and next sentence prediction'  [chars 449-502, score 13.50, margin(score-null) +24.67, confidence 0.84, windows 1]
+   top-k: 'masked language modeling and next sentence prediction' 0.84; 'next sentence prediction' 0.10; 'masked language modeling' 0.03
+   sentence: BERT uses only the encoder part of the Transformer and is pretrained with two objectives: masked language modeling and next sentence prediction.
+Q: How many layers does BERT base have?
+   A: '12'  [chars 533-535, score 12.80, margin(score-null) +23.27, confidence 0.63, windows 1]
+   top-k: '12' 0.63; '12 layers' 0.36; '12 layers, a hidden size of 768' 0.00
+   sentence: The base version of BERT has 12 layers, a hidden size of 768 and 12 attention heads, giving about 110 million parameters.
+Q: How many parameters does BERT base have?
+   A: '110 million'  [chars 602-613, score 14.45, margin(score-null) +22.58, confidence 0.63, windows 1]
+   top-k: '110 million' 0.63; '12 layers, a hidden size of 768 and 12 attention heads, giving about 110 million' 0.17; '110 million parameters' 0.09
+   sentence: The base version of BERT has 12 layers, a hidden size of 768 and 12 attention heads, giving about 110 million parameters.
+Q: What can BERT be fine-tuned for?
+   A: 'text classification, named entity recognition and question answering'  [chars 686-754, score 9.63, margin(score-null) +22.80, confidence 0.27, windows 1]
+   top-k: 'text classification, named entity recognition and question answering' 0.27; 'tasks such as text classification, named entity recognition and question answering' 0.24; 'text classification' 0.10
+   sentence: After pretraining, BERT can be fine-tuned for tasks such as text classification, named entity recognition and question answering by adding a small prediction head on top of its contextual representations.
+Q: What is the capital of France?
+   A: 'Bidirectional Encoder Representations from Transformers'  [chars 270-325, score -9.45, margin(score-null) +1.49, confidence 0.24, windows 1]
+   top-k: 'Bidirectional Encoder Representations from Transformers' 0.24; 'BERT, short for Bidirectional Encoder Representations from Transformers' 0.12; 'Transformer' 0.07
+   sentence: BERT, short for Bidirectional Encoder Representations from Transformers, was released by Google in 2018.
+==================================================================================================== 
+FAQ: refund policy of a fictional online shop
+Customers may return unused items within 30 days of delivery for a full refund. To start a return, open the order page and choose the option called Request a return. Refunds are issued to the original payment method within 5 to 7 business days after the returned item reaches our warehouse. Shipping fees are not refunded unless the item arrived damaged or the wrong item was sent. Gift cards and downloadable software cannot be returned. Customer support is available Monday to Friday from 9 a.m. to 6 p.m. by email at support@example.com or by phone at 555-0142.
+
+Q: How many days do customers have to return an item?
+   A: '5 to 7 business days'  [chars 223-243, score 7.07, margin(score-null) +16.22, confidence 0.27, windows 1]
+   top-k: '5 to 7 business days' 0.27; '30 days' 0.23; '5 to 7' 0.22
+   sentence: Refunds are issued to the original payment method within 5 to 7 business days after the returned item reaches our warehouse.
+Q: How long does a refund take?
+   A: '30 days'  [chars 41-48, score 4.66, margin(score-null) +12.82, confidence 0.34, windows 1]
+   top-k: '30 days' 0.34; '5 to 7 business days' 0.28; '30 days of delivery' 0.10
+   sentence: Customers may return unused items within 30 days of delivery for a full refund.
+Q: Which items cannot be returned?
+   A: 'Gift cards and downloadable software'  [chars 382-418, score 13.04, margin(score-null) +20.95, confidence 0.73, windows 1]
+   top-k: 'Gift cards and downloadable software' 0.73; 'Gift cards' 0.23; 'downloadable software' 0.01
+   sentence: Gift cards and downloadable software cannot be returned.
+Q: When are shipping fees refunded?
+   A: 'unless the item arrived damaged or the wrong item was sent'  [chars 322-380, score 4.10, margin(score-null) +16.71, confidence 0.41, windows 1]
+   top-k: 'unless the item arrived damaged or the wrong item was sent' 0.41; '5 to 7 business days' 0.17; 'unless' 0.09
+   sentence: Shipping fees are not refunded unless the item arrived damaged or the wrong item was sent.
+Q: What are the support hours?
+   A: 'Monday to Friday'  [chars 469-485, score 7.14, margin(score-null) +11.60, confidence 0.40, windows 1]
+   top-k: 'Monday to Friday' 0.40; 'Monday to Friday from 9 a.m. to 6 p.m' 0.15; 'Monday to Friday from 9 a.m. to 6 p.m.' 0.08
+   sentence: Customer support is available Monday to Friday from 9 a.m. to 6 p.m. by email at support@example.com or by phone at 555-0142.
+Q: How can I contact customer support?
+   A: 'email at support@example.com'  [chars 511-539, score 5.92, margin(score-null) +11.48, confidence 0.40, windows 1]
+   top-k: 'email at support@example.com' 0.40; 'by email at support@example.com' 0.20; 'email' 0.05
+   sentence: Customer support is available Monday to Friday from 9 a.m. to 6 p.m. by email at support@example.com or by phone at 555-0142.
+Q: Do you ship to Canada?
+   A: 'Refunds are issued to the original payment method within 5 to 7 business days after the returned item reaches our warehouse'  [chars 166-289, score -1.32, margin(score-null) +4.67, confidence 0.12, windows 1]
+   top-k: 'Refunds are issued to the original payment method within 5 to 7 business days after the returned item reaches our warehouse' 0.12; 'Customers may return unused items within 30 days of delivery' 0.12; 'Refunds are issued to the original payment method within 5 to 7 business days' 0.07
+   sentence: Refunds are issued to the original payment method within 5 to 7 business days after the returned item reaches our warehouse.

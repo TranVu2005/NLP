@@ -1,0 +1,8 @@
+runs/*/model.pt
+runs_*.log
+data_cache/*.jsonl
+data_cache/*.json
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+W10.pdf

@@ -1,0 +1,82 @@
+{
+ "749": {
+  "type": "wrong start (over-extended) + multiple plausible spans",
+  "explanation": "Biên phải đúng (`Trevathan`) nhưng biên trái nhảy ngược về `T. J. Ward` ở câu trước; span 13 token đi qua ranh giới câu. Hai head độc lập: head start bị hút bởi tên riêng `Ward` (trùng từ với câu hỏi `Ward's fumble`), head end chọn đúng người; giải mã chỉ yêu cầu `end ≥ start` và ≤ 30 token nên cặp không nhất quán vẫn có điểm cao (13.69). Không có ràng buộc 'span không vượt qua ranh giới câu' hay 'span phải là một cụm danh từ'."
+ },
+ "1776": {
+  "type": "wrong start + question ambiguity",
+  "explanation": "Gold chỉ là `framework`; model lấy cả cụm `complicated definitions that do not fit into this framework`. Câu hỏi (`classified into what?`) không khớp trực tiếp với câu chứa đáp án (đáp án gần như là một bình luận, không phải câu trả lời rõ), điểm thấp (5.32): head start chọn đầu cụm danh từ dài thay vì token cuối. Câu hỏi mơ hồ + gold rất ngắn so với cụm bao quanh."
+ },
+ "4004": {
+  "type": "wrong start (over-extended)",
+  "explanation": "Biên phải đúng `Moon`; biên trái bắt đầu ở `waste the Saturn V…` thay vì `orbit the Moon`. Cụm `Rather than … simply Earth-orbiting` chứa các từ trùng câu hỏi (`instead of`, `Earth orbiting`) nên head start đặt xác suất vào đầu mệnh đề chứa từ trùng thay vì vào động từ sau `to`. Điểm rất thấp (1.57, so với ~10–17 của dự đoán đúng) — model không chắc; lỗi 'biên theo từ trùng'."
+ },
+ "9045": {
+  "type": "multiple plausible spans / gold không đầy đủ",
+  "explanation": "Câu liệt kê `Sophie Germain primes, primorial primes, Fermat primes, Mersenne primes` — tất cả đều là đáp án hợp lệ; các gold annotator chọn các mục khác nhau (3/5 chọn `primorial primes`, còn lại `Fermat primes`, `Mersenne`) và dự đoán `Sophie Germain primes` (mục đầu danh sách) hợp lý nhưng không nằm trong gold. F1 > 0 chỉ vì trùng từ `primes`. Đây cũng là câu mà điểm `[CLS]` (7.72) cao hơn span tốt nhất (7.28): model không tự tin. Lỗi do tập gold, không hẳn do model."
+ },
+ "10411": {
+  "type": "wrong start + multiple plausible spans",
+  "explanation": "Câu chứa hai cụm đều có thể là đáp án: `precise operational definitions` (4/5 gold) và `standard measurement scale` (1/5 gold). Model không chọn một trong hai mà lấy một span dài nối cả hai (từ đầu cụm thứ nhất tới cuối cụm thứ hai, qua `that are consistent with direct observations and compared to a`). Vì gold khớp F1 nhất là `standard measurement scale` nên mẫu được xếp wrong-start (biên phải trùng, biên trái lệch). Start và end là hai dự đoán độc lập: mỗi biên 'đúng' với một đáp án khác nhau."
+ },
+ "1679": {
+  "type": "wrong end (over-extended)",
+  "explanation": "Câu hỏi `How many` → gold chỉ là lượng từ `more than 70`; model giữ biên trái đúng nhưng kéo biên phải tới hết câu (`pioneers in science and engineering, including Albert Einstein`). Head end ưu tiên kết thúc ở cuối cụm danh từ/mệnh đề (ranh giới ngữ pháp 'tự nhiên') thay vì ở token số lượng; điển hình cho lỗi mở rộng danh từ ở biên phải."
+ },
+ "2170": {
+  "type": "wrong end (head noun)",
+  "explanation": "`law` so với `law school`: thêm danh từ chính. Câu hỏi `what educational study` có thể đáp bằng cả hai — biên 'đúng' phụ thuộc quy ước người gán nhãn; EM không dung thứ nhưng F1 = 0.667. Lỗi biên cuối do tính mơ hồ của cụm danh từ ghép."
+ },
+ "3711": {
+  "type": "wrong end (trailing parenthetical / near-correct)",
+  "explanation": "Dự đoán `at partial pressures more than 50 kilopascals (kPa)`; gold khác nhau (`50 kilopascals`, `more than 50 kilopascals`, `at partial pressures more than 50 kilopascals`) — annotator tự bất đồng về biên trái; model chọn dạng dài nhất và thêm `(kPa)` ở cuối nên chỉ lệch một token (F1 = 0.933). Normalization bỏ dấu ngoặc nhưng không bỏ token `kpa`, nên EM = 0. Gần như đúng; lỗi do tiêu chuẩn biên không nhất quán."
+ },
+ "4057": {
+  "type": "wrong end (over-extended, relative clause)",
+  "explanation": "Biên trái đúng (`Stan Lebar`, 4/5 gold) nhưng biên phải kéo qua mệnh đề quan hệ `who led the team that designed and built the lunar television camera at Westinghouse Electric Corp` (F1 = 0.18). Head end không dừng ở hết tên riêng mà dừng ở cuối cả mệnh đề; một annotator chọn `Nafzger` cho thấy câu còn có đáp án hợp lệ khác. Giải mã chỉ ràng buộc `end ≥ start` và ≤ 30 token nên span dài vẫn được chấp nhận (điểm 14.48 cao vì start rất chắc)."
+ },
+ "9053": {
+  "type": "distractor (nhãn tự động xếp nhầm là wrong end)",
+  "explanation": "Dự đoán `n` nằm ở một chỗ **khác** (`for any natural number n` trong câu công thức trước), không phải `n > 3`; điểm 5.07 thấp hơn điểm `[CLS]` 7.86. Phân loại tự động so token đầu/cuối sau normalize nên `n` trùng token đầu của gold và bị xếp `wrong_end`. Nguyên nhân thật: distractor có từ trùng câu hỏi (`natural number`). Đây là hạn chế của cách phân loại (không so vị trí ký tự), cần ghi nhận."
+ },
+ "581": {
+  "type": "wrong span (lexical-overlap distractor)",
+  "explanation": "`What followed The Late Show with Stephen Colbert?` → gold `late local programming` (sau `Following a break for`); model chọn `a special episode of The Late Show with Stephen Colbert following the game` — chính cụm có từ trùng câu hỏi (sao chép tên chương trình) chứ không phải thứ 'theo sau'. Quan hệ thời gian (`followed`) bị bỏ qua; điểm thấp (3.78)."
+ },
+ "610": {
+  "type": "wrong span (multiple plausible spans / binding)",
+  "explanation": "Câu liệt kê `Paramount paid for TMNT… and 10 Cloverfield Lane, Universal paid for The Secret Life of Pets…`. Cần gán đúng hãng (Paramount) với trailer; model chọn `The Secret Life of Pets` (thuộc Universal) — span cùng kiểu (tên phim) trong danh sách dài. Lỗi *binding* khi có nhiều span cùng kiểu."
+ },
+ "1501": {
+  "type": "wrong span (long why-answer, distractor)",
+  "explanation": "Câu hỏi `Why` có đáp án dài, không phải thực thể (`to complete the construction of Wardenclyffe`); model chọn một mệnh đề mục đích khác (`appeal to his Christian spirit`) ở đoạn khác, điểm rất thấp (0.13). Câu hỏi why thiếu 'điểm neo' kiểu thực thể nên mọi cụm `to + V` đều là ứng viên."
+ },
+ "5754": {
+  "type": "wrong span (insufficient context / cần kiến thức ngoài)",
+  "explanation": "`Halloween-themed` không xuất hiện trong context; muốn trả lời phải biết `It's the Great Pumpkin, Charlie Brown` là chương trình Halloween. Model chọn `A Charlie Brown Christmas` (nhắc 2 lần, gần cụm `Peanuts specials`). Context không đủ cho suy luận thuần trích xuất; các gold cũng khác nhau về biên (`…Pumpkin` / `…Pumpkin, Charlie Brown`)."
+ },
+ "7013": {
+  "type": "wrong boundary (both sides, coordination)",
+  "explanation": "Gold `to select their students`; model `the right to select their students and are funded in whole or in part by charging their students tuition`: sai biên trái (thêm `the right`) và biên phải (kéo qua `and are funded…`). Liên từ `and` nối hai vị ngữ nên head end không thấy điểm dừng; khớp thống kê toàn dev: `and`, `of`, `to` là các token biên bị thừa/thiếu nhiều nhất."
+ },
+ "941": {
+  "type": "wrong span (multiple plausible spans)",
+  "explanation": "`How much of Warsaw's population` → gold `some 30% of the city`, model `several hundred thousand`. Câu có đồng vị `several hundred thousand, some 30% of the city`: cả hai đều là 'số lượng dân số Do Thái'; `much of … population` gợi tỷ lệ nên gold là phần trăm, nhưng model chọn số tuyệt đối đứng trước. Hai span hợp lý trong cùng câu."
+ },
+ "2365": {
+  "type": "wrong span (question ambiguity / noisy question)",
+  "explanation": "`When did Luther and his wife live?` nhưng gold là `The Black Cloister` (đúng ra là câu hỏi `where`): câu hỏi gần như bị sai/nhiễu nhãn. Model chọn `moved` (điểm thấp 4.48) — không có thời điểm hợp lệ trong câu. Lỗi dữ liệu hơn là lỗi model."
+ },
+ "2471": {
+  "type": "wrong span (same-type distractor in same sentence)",
+  "explanation": "Câu có hai tên: `Franz Pieper` (người quan sát) và `Johann Gerhard` (nhà thần học mà Luther bất đồng). Model chọn tên đầu `Franz Pieper` với điểm cao (14.02): lỗi quan hệ (`differed … from the later theologians such as X`). Cùng kiểu thực thể, cùng câu, khác vai ngữ pháp; model dựa vào kiểu thực thể và vị trí hơn là cấu trúc."
+ },
+ "5926": {
+  "type": "wrong span (cross-sentence reference, distractor)",
+  "explanation": "Gold `2010` ở câu trước (`by 2010`), câu sau nói `That year, … Lost … lowest-rated season since its debut in 2004`. Từ khoá câu hỏi (`lowest ratings`, `Lost`) nằm ở câu sau nên model chọn năm gần nhất (`2004`) trong câu đó. Cần giải tham chiếu `That year` → `2010` giữa hai câu; `2004` là distractor cùng kiểu số."
+ },
+ "6981": {
+  "type": "wrong span (answer = phrase copied from question)",
+  "explanation": "`What is a PPP also known as?` — model trả `Public-Private Partnering`, tức **khai triển của chính PPP** (có trong câu hỏi) thay vì đối tượng của `aka` (`private finance initiatives (PFIs)`). Cụm này nằm sát từ khoá `PPPs` và overlap từ vựng mạnh với câu hỏi; head không phân biệt 'cái được hỏi' với 'cái nhắc lại'."
+ }
+}
